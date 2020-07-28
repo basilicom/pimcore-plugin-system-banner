@@ -1,5 +1,5 @@
 system_banner:
-    resource: "@Basilicom/PimcorePluginSystemBanner/Controller/"
+    resource: "@PimcorePluginSystemBannerBundle/Controller/"
     type:     annotation
     prefix:   /
 
