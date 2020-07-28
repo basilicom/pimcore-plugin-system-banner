@@ -1,0 +1,41 @@
+#system-banner {
+    background-color: #b80b0b;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    min-width: 100px;
+    padding: 10px 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    top: 0;
+    transform: translateX(30%) translateY(0%) rotate(45deg);
+    transform-origin: top left;
+}
+#system-banner:before,
+#system-banner:after {
+    background-color: #b80b0b;
+    content: '';
+    height: 100%;
+    margin: 0 -1px;
+    position: absolute;
+    top:0;
+    width: 100%;
+}
+#system-banner:before {
+    right: 100%;
+}
+#system-banner:after {
+    left: 100%;
+}
+
+#system-banner.system-banner-dev:before,
+#system-banner.system-banner-dev:after,
+#system-banner.system-banner-dev {
+    background-color: #00a808;
+}
