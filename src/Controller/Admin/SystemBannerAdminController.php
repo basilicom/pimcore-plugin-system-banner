@@ -9,30 +9,38 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SystemBannerAdminController extends AdminController
 {
-    const TYPES_PROD = [
-        'prod',
-        'live',
+    const ENVIRONMENT_DEV = 'dev';
+    const ENVIRONMENT_PROD = 'prod';
+
+    const ENVIRONMENT_MAP = [
+        'dev' => self::ENVIRONMENT_DEV,
+        'development' => self::ENVIRONMENT_DEV,
+        'stage' => self::ENVIRONMENT_DEV,
+        'staging' => self::ENVIRONMENT_DEV,
+        'qs' => self::ENVIRONMENT_DEV,
+
+        'live' => self::ENVIRONMENT_PROD,
+        'prod' => self::ENVIRONMENT_PROD,
     ];
 
     /**
-     * @Route("/admin/system-banner/get-system-type", methods={"GET"})
+     * @Route("/admin/system-banner", methods={"GET"})
      *
      * @return JsonResponse
      */
     public function getSystemType()
     {
-        $success = true;
         $environment = Config::getEnvironment();
+        $environmentName = !in_array($environment, self::ENVIRONMENT_MAP)
+            ? self::ENVIRONMENT_PROD
+            : self::ENVIRONMENT_MAP[$environment];
 
-        $type = false;
-        if (in_array($environment, self::TYPES_PROD)) {
-            $type = true;
-        }
-
-        return $this->adminJson([
-            'success' => $success,
-            'isLive' => $type,
-            'text' => $environment
-        ]);
+        return $this->adminJson(
+            [
+                'success' => true,
+                'type' => $environmentName,
+                'content' => strtoupper($environment),
+            ]
+        );
     }
 }
