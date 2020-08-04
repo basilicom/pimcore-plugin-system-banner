@@ -1,13 +1,11 @@
-pimcore.registerNS("pimcore.plugin.SystemBannerBundle");
+pimcore.registerNS('pimcore.plugin.SystemBannerBundle');
 
 pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
-
-    systemText: '---',
-    isLive: true,
+    banner: null,
 
     // functions
     getClassName: function () {
-        return "pimcore.plugin.SystemBannerBundle";
+        return 'pimcore.plugin.SystemBannerBundle';
     },
 
     initialize: function () {
@@ -16,44 +14,47 @@ pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
         this._getSystemType();
     },
 
-    pimcoreReady: function (params, broker) {
+    pimcoreReady: function () {
         this._createBanner();
-        this._updateBanner();
     },
 
     _getSystemType: function () {
         var _this = this;
 
         Ext.Ajax.request({
-            url: "/admin/system-banner/get-system-type",
+            url: '/admin/system-banner',
             method: 'GET',
             success: function (response) {
-
                 var res = Ext.decode(response.responseText);
                 if (res.success) {
-                    _this.isLive = res.isLive;
-                    _this.systemText = res.text;
-                    _this._updateBanner();
+                    _this._updateBanner(res.type, res.content);
                 }
-            },
-            failure: function (response) {
-                // nothing to do
             }
         });
     },
 
+    _getBanner: function () {
+        if (!this.banner) {
+            this.banner = document.createElement('div');
+            this.banner.setAttribute('id', 'system-banner');
+            this.banner.className = 'system-banner--prod';
+            this.banner.innerText = '---';
+        }
+
+        return this.banner;
+    },
+
     _createBanner: function () {
-        let banner = document.createElement('div');
-        banner.setAttribute("id", "system-banner");
+        var banner = this._getBanner();
+
         document.body.append(banner);
     },
 
-    _updateBanner: function () {
-        let banner = document.getElementById('system-banner');
-        if (!this.isLive) {
-            banner.classList.add("system-banner-dev");
-        }
-        banner.innerText = this.systemText;
+    _updateBanner: function (type, content) {
+        var banner = this._getBanner();
+
+        banner.className = 'system-banner--' + type;
+        banner.innerText = content;
     }
 });
 
