@@ -15,7 +15,7 @@
     top: 0;
     transform: translateX(30%) translateY(0%) rotate(45deg);
     transform-origin: top left;
-    z-index: 100;
+    z-index: 9999;
 }
 
 #system-banner:before,
