@@ -10,14 +10,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class SystemBannerAdminController extends AdminController
 {
     const ENVIRONMENT_DEV = 'dev';
+    const ENVIRONMENT_STAGE = 'stage';
     const ENVIRONMENT_PROD = 'prod';
 
     const ENVIRONMENT_MAP = [
         'dev' => self::ENVIRONMENT_DEV,
         'development' => self::ENVIRONMENT_DEV,
-        'stage' => self::ENVIRONMENT_DEV,
-        'staging' => self::ENVIRONMENT_DEV,
-        'qs' => self::ENVIRONMENT_DEV,
+        'qa' => self::ENVIRONMENT_DEV,
+
+        'stage' => self::ENVIRONMENT_STAGE,
+        'staging' => self::ENVIRONMENT_STAGE,
 
         'live' => self::ENVIRONMENT_PROD,
         'prod' => self::ENVIRONMENT_PROD,
@@ -31,15 +33,15 @@ class SystemBannerAdminController extends AdminController
     public function getSystemType()
     {
         $environment = Config::getEnvironment();
-        $environmentName = !in_array($environment, self::ENVIRONMENT_MAP)
+        $environmentType = !in_array($environment, self::ENVIRONMENT_MAP)
             ? self::ENVIRONMENT_PROD
             : self::ENVIRONMENT_MAP[$environment];
 
         return $this->adminJson(
             [
                 'success' => true,
-                'type' => $environmentName,
-                'content' => strtoupper($environment),
+                'type' => $environmentType,
+                'content' => $environment
             ]
         );
     }

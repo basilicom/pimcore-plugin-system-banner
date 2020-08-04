@@ -47,3 +47,9 @@
 #system-banner.system-banner--dev {
     background-color: #00a808;
 }
+
+#system-banner.system-banner--stage:before,
+#system-banner.system-banner--stage:after,
+#system-banner.system-banner--stage {
+    background-color: #ffff33;
+}
