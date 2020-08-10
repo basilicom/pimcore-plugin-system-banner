@@ -1,61 +1,55 @@
 pimcore.registerNS('pimcore.plugin.SystemBannerBundle');
-
 pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
-    banner: null,
+  environmentAliases: {
+    dev: [
+      'dev',
+      'development',
+      'qa',
+      'qs',
+      'test',
+    ],
 
-    // functions
-    getClassName: function () {
-        return 'pimcore.plugin.SystemBannerBundle';
-    },
+    stage: [
+      'stage',
+      'staging'
+    ],
 
-    initialize: function () {
-        pimcore.plugin.broker.registerPlugin(this);
+    prod: [
+      'live',
+      'prod',
+      'production'
+    ]
+  },
 
-        this._getSystemType();
-    },
+  getClassName: function () {
+    return 'pimcore.plugin.SystemBannerBundle';
+  },
 
-    pimcoreReady: function () {
-        this._createBanner();
-    },
+  initialize: function () {
+    pimcore.plugin.broker.registerPlugin(this);
+  },
 
-    _getSystemType: function () {
-        var _this = this;
+  pimcoreReady: function () {
+    var banner = document.createElement('div');
+    banner.setAttribute('id', 'system-banner');
+    banner.className = 'system-banner--' + this._getSystemType();
+    banner.innerText = pimcore.settings.environment;
 
-        Ext.Ajax.request({
-            url: '/admin/system-banner',
-            method: 'GET',
-            success: function (response) {
-                var res = Ext.decode(response.responseText);
-                if (res.success) {
-                    _this._updateBanner(res.type, res.content);
-                }
-            }
-        });
-    },
+    document.body.append(banner);
+  },
 
-    _getBanner: function () {
-        if (!this.banner) {
-            this.banner = document.createElement('div');
-            this.banner.setAttribute('id', 'system-banner');
-            this.banner.className = 'system-banner--prod';
-            this.banner.innerText = '---';
-        }
+  _getSystemType: function() {
+    var _this = this;
 
-        return this.banner;
-    },
+    var systemType = 'prod';
+    Object.keys(this.environmentAliases).forEach(function (environmentAlias) {
+      if (_this.environmentAliases[environmentAlias].includes( pimcore.settings.environment)) {
+        systemType = environmentAlias;
+      }
+    });
 
-    _createBanner: function () {
-        var banner = this._getBanner();
-
-        document.body.append(banner);
-    },
-
-    _updateBanner: function (type, content) {
-        var banner = this._getBanner();
-
-        banner.className = 'system-banner--' + type;
-        banner.innerText = content;
-    }
+    return systemType;
+  }
 });
 
 var SystemBannerBundlePlugin = new pimcore.plugin.SystemBannerBundle();
