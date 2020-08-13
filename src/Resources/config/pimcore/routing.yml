@@ -1,5 +1,0 @@
-system_banner:
-    resource: "@PimcorePluginSystemBannerBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
