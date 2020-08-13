@@ -4,6 +4,9 @@ pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
     dev: [
       'dev',
       'development',
+    ],
+
+    test: [
       'qa',
       'qs',
       'test',
@@ -43,7 +46,7 @@ pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
 
     var systemType = 'prod';
     Object.keys(this.environmentAliases).forEach(function (environmentAlias) {
-      if (_this.environmentAliases[environmentAlias].includes( pimcore.settings.environment)) {
+      if (_this.environmentAliases[environmentAlias].includes(pimcore.settings.environment)) {
         systemType = environmentAlias;
       }
     });

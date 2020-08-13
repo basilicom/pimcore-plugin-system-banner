@@ -53,3 +53,9 @@
 #system-banner.system-banner--stage {
     background-color: #ffff33;
 }
+
+#system-banner.system-banner--test:before,
+#system-banner.system-banner--test:after,
+#system-banner.system-banner--test {
+    background-color: #a067cf;
+}
