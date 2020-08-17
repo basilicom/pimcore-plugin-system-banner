@@ -10,6 +10,7 @@ pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
       'qa',
       'qs',
       'test',
+      'testing',
     ],
 
     stage: [
