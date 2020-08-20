@@ -1,0 +1,5 @@
+{
+  "./src/Resources/public/css/pimcore/systemBanner.css": "/./src/Resources/public/css/pimcore/systemBanner.css",
+  "./src/Resources/public/js/pimcore/systemBanner.js": "/./src/Resources/public/js/pimcore/systemBanner.js",
+  "./src/Resources/public/js/systemBanner.js": "/./src/Resources/public/js/systemBanner.js"
+}

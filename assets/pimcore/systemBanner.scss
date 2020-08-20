@@ -14,15 +14,12 @@ body {
   right: 0;
   text-align: center;
   text-transform: uppercase;
-  -webkit-text-fill-color: white;
-  /* Will override color (regardless of order) */
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
   top: 0;
-  -webkit-transform: translateX(30%) translateY(0%) rotate(45deg);
-          transform: translateX(30%) translateY(0%) rotate(45deg);
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
+  transform: translateX(30%) translateY(0%) rotate(45deg);
+  transform-origin: top left;
   z-index: 9999;
 }
 
@@ -67,4 +64,3 @@ body {
 #system-banner.system-banner--test {
   background-color: #a067cf;
 }
-
