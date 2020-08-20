@@ -4,7 +4,7 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "description": "A system banner which receives the current environment and show a specifc coloured banner.",
+  "description": "A system banner which receives the current environment and show a specific coloured banner.",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/npx webpack",
