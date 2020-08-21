@@ -1,7 +1,11 @@
-.PHONY: npm-install
-npm-install:
-	docker run --rm --interactive --tty --volume ${PWD}/:/app --workdir /app node:12 sh -c "npm install --ignore-scripts && npm rebuild node-sass"
+.PHONY: yarn-install
+yarn-install: ## install npm dependencies
+	docker run --rm --volume ${PWD}:/app --workdir /app node:alpine sh -c "yarn install --ignore-scripts"
 
-.PHONY: npm-build
-npm-build:
-	docker run --rm --interactive --tty --volume ${PWD}/:/app --workdir /app node:12 sh -c "npm run build"
+.PHONY: yarn-build
+yarn-build: ## build frontend assets once
+	docker run --rm --volume ${PWD}:/app --workdir /app node:alpine sh -c "yarn encore dev"
+
+.PHONY: yarn-watch
+yarn-watch: ## build frontend assets once
+	docker run --rm --volume ${PWD}:/app --workdir /app node:alpine sh -c "yarn encore dev --watch"
