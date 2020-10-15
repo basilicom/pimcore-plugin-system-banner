@@ -104,7 +104,8 @@ pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
     pimcore.plugin.broker.registerPlugin(this);
   },
   pimcoreReady: function pimcoreReady() {
-    new SystemBanner(pimcore.settings.environment);
+    var banner = new SystemBanner();
+    banner.init(pimcore.settings.environment);
   }
 });
 var SystemBannerBundlePlugin = new pimcore.plugin.SystemBannerBundle();
@@ -128,21 +129,23 @@ var SystemBanner = /*#__PURE__*/function () {
   "use strict";
 
   function SystemBanner() {
-    var environment = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-
     _classCallCheck(this, SystemBanner);
-
-    this.setEnvironmentAliases();
-
-    if (environment === null) {
-      this.getData();
-    } else {
-      this.addCss();
-      this.addBanner(environment);
-    }
   }
 
   _createClass(SystemBanner, [{
+    key: "init",
+    value: function init() {
+      var environment = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      this.setEnvironmentAliases();
+
+      if (environment === null) {
+        this.getData();
+      } else {
+        this.addCss();
+        this.addBanner(environment);
+      }
+    }
+  }, {
     key: "setEnvironmentAliases",
     value: function setEnvironmentAliases() {
       this.environmentAliases = {
@@ -215,7 +218,8 @@ var SystemBanner = /*#__PURE__*/function () {
   return SystemBanner;
 }();
 
-new SystemBanner();
+var banner = new SystemBanner();
+banner.init();
 
 /***/ })
 

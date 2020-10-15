@@ -1,12 +1,12 @@
 class SystemBanner {
-    constructor(environment = null) {
+    init(environment = null) {
         this.setEnvironmentAliases();
 
         if (environment === null) {
-          this.getData();
+            this.getData();
         } else {
-          this.addCss();
-          this.addBanner(environment);
+            this.addCss();
+            this.addBanner(environment);
         }
     }
 
@@ -89,4 +89,5 @@ class SystemBanner {
     }
 }
 
-new SystemBanner();
+var banner = new SystemBanner();
+banner.init();

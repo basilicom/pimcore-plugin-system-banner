@@ -11,7 +11,8 @@ pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
     },
 
     pimcoreReady: function () {
-        new SystemBanner(pimcore.settings.environment);
+        var banner = new SystemBanner();
+        banner.init(pimcore.settings.environment);
     }
 });
 
