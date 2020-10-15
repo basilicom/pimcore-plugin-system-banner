@@ -103,10 +103,18 @@ var SystemBanner = /*#__PURE__*/function () {
   "use strict";
 
   function SystemBanner() {
+    var environment = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
     _classCallCheck(this, SystemBanner);
 
     this.setEnvironmentAliases();
-    this.getData();
+
+    if (environment === null) {
+      this.getData();
+    } else {
+      this.addCss();
+      this.addBanner(environment);
+    }
   }
 
   _createClass(SystemBanner, [{
@@ -130,11 +138,9 @@ var SystemBanner = /*#__PURE__*/function () {
         if (this.readyState === 4 && this.status === 200) {
           var response = JSON.parse(this.responseText);
 
-          if (response.isAdmin) {
-            _this.addCss();
+          _this.addCss();
 
-            _this.addBanner(response.environment);
-          }
+          _this.addBanner(response.environment);
         }
       };
 

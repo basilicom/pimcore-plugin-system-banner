@@ -91,16 +91,12 @@
   !*** ./assets/pimcore/systemBanner.js ***!
   \****************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../systemBanner.js */ "./assets/systemBanner.js");
 
 pimcore.registerNS('pimcore.plugin.SystemBannerBundle');
 pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
-  environmentAliases: {
-    dev: ['dev', 'development'],
-    test: ['qa', 'qs', 'test', 'testing'],
-    stage: ['stage', 'staging'],
-    prod: ['live', 'prod', 'production']
-  },
   getClassName: function getClassName() {
     return 'pimcore.plugin.SystemBannerBundle';
   },
@@ -108,25 +104,118 @@ pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
     pimcore.plugin.broker.registerPlugin(this);
   },
   pimcoreReady: function pimcoreReady() {
-    var banner = document.createElement('div');
-    banner.setAttribute('id', 'system-banner');
-    banner.className = 'system-banner--' + this._getSystemType();
-    banner.innerText = pimcore.settings.environment;
-    document.body.append(banner);
-  },
-  _getSystemType: function _getSystemType() {
-    var _this = this;
-
-    var systemType = 'prod';
-    Object.keys(this.environmentAliases).forEach(function (environmentAlias) {
-      if (_this.environmentAliases[environmentAlias].includes(pimcore.settings.environment)) {
-        systemType = environmentAlias;
-      }
-    });
-    return systemType;
+    new SystemBanner(pimcore.settings.environment);
   }
 });
 var SystemBannerBundlePlugin = new pimcore.plugin.SystemBannerBundle();
+
+/***/ }),
+
+/***/ "./assets/systemBanner.js":
+/*!********************************!*\
+  !*** ./assets/systemBanner.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var SystemBanner = /*#__PURE__*/function () {
+  "use strict";
+
+  function SystemBanner() {
+    var environment = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+    _classCallCheck(this, SystemBanner);
+
+    this.setEnvironmentAliases();
+
+    if (environment === null) {
+      this.getData();
+    } else {
+      this.addCss();
+      this.addBanner(environment);
+    }
+  }
+
+  _createClass(SystemBanner, [{
+    key: "setEnvironmentAliases",
+    value: function setEnvironmentAliases() {
+      this.environmentAliases = {
+        dev: ['dev', 'development'],
+        test: ['qa', 'qs', 'test', 'testing'],
+        stage: ['stage', 'staging'],
+        prod: ['live', 'prod', 'production']
+      };
+    }
+  }, {
+    key: "getData",
+    value: function getData() {
+      var _this = this;
+
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+          var response = JSON.parse(this.responseText);
+
+          _this.addCss();
+
+          _this.addBanner(response.environment);
+        }
+      };
+
+      xhttp.open("GET", "/pimcore-system-banner", true);
+      xhttp.send();
+    }
+  }, {
+    key: "getSystemType",
+    value: function getSystemType(environment) {
+      var _this = this;
+
+      var systemType = 'prod';
+      Object.keys(_this.environmentAliases).forEach(function (environmentAlias) {
+        if (_this.environmentAliases[environmentAlias].includes(environment)) {
+          systemType = environmentAlias;
+        }
+      });
+      return systemType;
+    }
+  }, {
+    key: "addBanner",
+    value: function addBanner(environment) {
+      var banner = document.createElement('div');
+      banner.setAttribute('id', 'system-banner');
+      banner.className = 'system-banner--' + this.getSystemType(environment);
+      banner.innerText = environment;
+      document.body.append(banner);
+    }
+  }, {
+    key: "addCss",
+    value: function addCss() {
+      var cssId = 'system-banner-css';
+
+      if (!document.getElementById(cssId)) {
+        var head = document.getElementsByTagName('head')[0];
+        var link = document.createElement('link');
+        link.id = cssId;
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/bundles/pimcorepluginsystembanner/css/pimcore/systemBanner.css';
+        link.media = 'all';
+        head.appendChild(link);
+      }
+    }
+  }]);
+
+  return SystemBanner;
+}();
+
+new SystemBanner();
 
 /***/ })
 

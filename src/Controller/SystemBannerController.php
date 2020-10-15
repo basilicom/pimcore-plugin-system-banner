@@ -18,13 +18,15 @@ class SystemBannerController extends FrontendController
     {
         /** @var User $user*/
         $user = Session::getReadonly()->get("user");
+        if (empty($user)) {
+            return JsonResponse::create(null, 400);
+        }
 
         $environment = Config::getEnvironment();
 
         $data = [
-            'isAdmin' => empty($user) ? false : $user->isAdmin(),
             'environment' => $environment,
         ];
-        return JsonResponse::create($data);
+        return JsonResponse::create($data, 200);
     }
 }

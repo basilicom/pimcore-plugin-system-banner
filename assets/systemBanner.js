@@ -1,7 +1,13 @@
 class SystemBanner {
-    constructor() {
+    constructor(environment = null) {
         this.setEnvironmentAliases();
-        this.getData();
+
+        if (environment === null) {
+          this.getData();
+        } else {
+          this.addCss();
+          this.addBanner(environment);
+        }
     }
 
     setEnvironmentAliases() {
@@ -38,10 +44,8 @@ class SystemBanner {
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 const response = JSON.parse(this.responseText);
-                if (response.isAdmin) {
-                    _this.addCss();
-                    _this.addBanner(response.environment);
-                }
+                _this.addCss();
+                _this.addBanner(response.environment);
             }
         };
         xhttp.open("GET", "/pimcore-system-banner", true);
