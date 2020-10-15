@@ -1,0 +1,5 @@
+services:
+  Basilicom\PimcorePluginSystemBanner\Twig\:
+    resource: '../../Twig'
+    tags:
+      - twig.extension
