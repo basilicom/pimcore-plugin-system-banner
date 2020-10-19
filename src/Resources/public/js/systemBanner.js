@@ -81,36 +81,10 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/pimcore/systemBanner.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/systemBanner.js");
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./assets/pimcore/systemBanner.js":
-/*!****************************************!*\
-  !*** ./assets/pimcore/systemBanner.js ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ../systemBanner.js */ "./assets/systemBanner.js");
-
-pimcore.registerNS('pimcore.plugin.SystemBannerBundle');
-pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
-  getClassName: function getClassName() {
-    return 'pimcore.plugin.SystemBannerBundle';
-  },
-  initialize: function initialize() {
-    pimcore.plugin.broker.registerPlugin(this);
-  },
-  pimcoreReady: function pimcoreReady() {
-    var banner = new SystemBanner();
-    banner.init(pimcore.settings.environment);
-  }
-});
-var SystemBannerBundlePlugin = new pimcore.plugin.SystemBannerBundle();
-
-/***/ }),
 
 /***/ "./assets/systemBanner.js":
 /*!********************************!*\
