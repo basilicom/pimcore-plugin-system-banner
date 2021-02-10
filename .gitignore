@@ -4,3 +4,4 @@ node_modules
 
 entrypoints.json
 manifest.json
+yarn.lock
