@@ -1,59 +1,44 @@
-class SystemBanner {
-    constructor() {
-        this.setEnvironmentAliases();
-        this.getData();
-    }
+const environmentAliases = {
+    dev: [
+        'dev',
+        'development',
+    ],
 
-    setEnvironmentAliases() {
-        this.environmentAliases = {
-            dev: [
-                'dev',
-                'development',
-            ],
+    test: [
+        'qa',
+        'qs',
+        'test',
+        'testing',
+    ],
 
-            test: [
-                'qa',
-                'qs',
-                'test',
-                'testing',
-            ],
+    stage: [
+        'stage',
+        'staging'
+    ],
 
-            stage: [
-                'stage',
-                'staging'
-            ],
+    prod: [
+        'live',
+        'prod',
+        'production'
+    ]
+}
 
-            prod: [
-                'live',
-                'prod',
-                'production'
-            ]
-        }
-    }
-
-    getData() {
-        var _this = this;
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                const response = JSON.parse(this.responseText);
-                if (response.isAdmin) {
-                    _this.addCss();
-                    _this.addBanner(response.environment);
+export class SystemBanner {
+    show() {
+        fetch('/pimcore-system-banner')
+            .then((response) => response.json())
+            .then((responseData) => {
+                if (responseData.isAdmin) {
+                    this.addCss();
+                    this.addBanner(responseData.environment);
                 }
-            }
-        };
-        xhttp.open("GET", "/pimcore-system-banner", true);
-        xhttp.send();
+            });
     }
 
     getSystemType(environment) {
-        var _this = this;
-
-        var systemType = 'prod';
-        Object.keys(_this.environmentAliases).forEach(function (environmentAlias) {
-            if (_this.environmentAliases[environmentAlias].includes(environment)) {
+        let systemType = 'prod';
+        Object.keys(environmentAliases).forEach((environmentAlias) => {
+            if (environmentAliases[environmentAlias].includes(environment)) {
                 systemType = environmentAlias;
             }
         });
@@ -62,27 +47,30 @@ class SystemBanner {
     }
 
     addBanner(environment) {
-        var banner = document.createElement('div');
-        banner.setAttribute('id', 'system-banner');
-        banner.className = 'system-banner--' + this.getSystemType(environment);
+        const banner = document.createElement('div');
+        banner.classList.add('system-banner__banner');
         banner.innerText = environment;
 
-        document.body.append(banner);
+        const bannerContainer = document.createElement('div');
+        bannerContainer.classList.add('system-banner', 'system-banner--' + this.getSystemType(environment));
+        bannerContainer.append(banner);
+
+        document.body.append(bannerContainer);
     }
 
     addCss() {
-        var cssId = 'system-banner-css';
+        const cssId = 'system-banner-css';
         if (!document.getElementById(cssId)) {
-            var head = document.getElementsByTagName('head')[0];
-            var link = document.createElement('link');
+            const head = document.getElementsByTagName('head')[0];
+            const link = document.createElement('link');
+
             link.id = cssId;
             link.rel = 'stylesheet';
             link.type = 'text/css';
             link.href = '/bundles/pimcorepluginsystembanner/css/pimcore/systemBanner.css';
             link.media = 'all';
+
             head.appendChild(link);
         }
     }
 }
-
-new SystemBanner();
