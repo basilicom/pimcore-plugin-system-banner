@@ -187,8 +187,8 @@ var SystemBanner = /*#__PURE__*/function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_SystemBanner__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/SystemBanner */ "./assets/js/SystemBanner.js");
 
-var systemBannerStandalone = new _js_SystemBanner__WEBPACK_IMPORTED_MODULE_0__["SystemBanner"]();
-systemBannerStandalone.show();
+var systemBanner = new _js_SystemBanner__WEBPACK_IMPORTED_MODULE_0__["SystemBanner"]();
+systemBanner.show();
 
 /***/ })
 
