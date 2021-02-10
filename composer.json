@@ -14,5 +14,8 @@
             "Basilicom\\PimcorePluginSystemBanner\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "php": ">=7.3",
+        "pimcore/pimcore": ">=6"
+    }
 }
