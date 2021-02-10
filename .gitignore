@@ -1,7 +1,9 @@
+# PHPStorm
 .idea
+
+# webpack
 vendor
 node_modules
-
 entrypoints.json
 manifest.json
 yarn.lock

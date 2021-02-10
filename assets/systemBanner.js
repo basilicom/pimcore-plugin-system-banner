@@ -24,14 +24,21 @@ const environmentAliases = {
 }
 
 export class SystemBanner {
-    show() {
+    show(environment) {
+        if (!environment) {
+            this.getData();
+        } else {
+            this.addCss();
+            this.addBanner(environment);
+        }
+    }
+
+    getData() {
         fetch('/pimcore-system-banner')
             .then((response) => response.json())
             .then((responseData) => {
-                if (responseData.isAdmin) {
-                    this.addCss();
-                    this.addBanner(responseData.environment);
-                }
+                this.addCss();
+                this.addBanner(responseData.environment);
             });
     }
 
