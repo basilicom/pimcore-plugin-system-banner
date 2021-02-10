@@ -1,4 +1,4 @@
-import {SystemBanner} from "../systemBanner";
+import {SystemBanner} from "./js/SystemBanner";
 
 pimcore.registerNS('pimcore.plugin.SystemBannerBundle');
 pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
@@ -12,7 +12,7 @@ pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
 
     pimcoreReady: function () {
         const systemBanner = new SystemBanner();
-        systemBanner.show();
+        systemBanner.show(pimcore.settings.environment);
     }
 });
 

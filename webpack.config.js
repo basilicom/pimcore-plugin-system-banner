@@ -18,9 +18,9 @@ Encore
     .enableSourceMaps(false)
     .enableVersioning(false)
 
-    .addEntry("./src/Resources/public/js/systemBanner", "./assets/systemBanner.js")
-    .addEntry("./src/Resources/public/js/pimcore/systemBanner", "./assets/pimcore/systemBanner.js")
-    .addStyleEntry("./src/Resources/public/css/pimcore/systemBanner", "./assets/pimcore/systemBanner.scss")
+    .addEntry("./src/Resources/public/js/systemBanner", "./assets/systemBanner.standalone.js")
+    .addEntry("./src/Resources/public/js/pimcore/systemBanner", "./assets/systemBanner.pimcore.js")
+    .addStyleEntry("./src/Resources/public/css/pimcore/systemBanner", "./assets/scss/systemBanner.scss")
 ;
 
 module.exports = Encore.getWebpackConfig();

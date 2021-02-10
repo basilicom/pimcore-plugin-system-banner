@@ -81,43 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/pimcore/systemBanner.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/systemBanner.pimcore.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/pimcore/systemBanner.js":
-/*!****************************************!*\
-  !*** ./assets/pimcore/systemBanner.js ***!
-  \****************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _systemBanner__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../systemBanner */ "./assets/systemBanner.js");
-
-pimcore.registerNS('pimcore.plugin.SystemBannerBundle');
-pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
-  getClassName: function getClassName() {
-    return 'pimcore.plugin.SystemBannerBundle';
-  },
-  initialize: function initialize() {
-    pimcore.plugin.broker.registerPlugin(this);
-  },
-  pimcoreReady: function pimcoreReady() {
-    var systemBanner = new _systemBanner__WEBPACK_IMPORTED_MODULE_0__["SystemBanner"]();
-    systemBanner.show();
-  }
-});
-var SystemBannerBundlePlugin = new pimcore.plugin.SystemBannerBundle();
-
-/***/ }),
-
-/***/ "./assets/systemBanner.js":
-/*!********************************!*\
-  !*** ./assets/systemBanner.js ***!
-  \********************************/
+/***/ "./assets/js/SystemBanner.js":
+/*!***********************************!*\
+  !*** ./assets/js/SystemBanner.js ***!
+  \***********************************/
 /*! exports provided: SystemBanner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -143,18 +115,21 @@ var SystemBanner = /*#__PURE__*/function () {
 
   _createClass(SystemBanner, [{
     key: "show",
-    value: function show() {
+    value: function show(environment) {
       var _this = this;
 
-      fetch('/pimcore-system-banner').then(function (response) {
-        return response.json();
-      }).then(function (responseData) {
-        if (responseData.isAdmin) {
+      if (!environment) {
+        fetch('/pimcore-system-banner/environment').then(function (response) {
+          return response.json();
+        }).then(function (responseData) {
           _this.addCss();
 
           _this.addBanner(responseData.environment);
-        }
-      });
+        });
+      } else {
+        this.addCss();
+        this.addBanner(environment);
+      }
     }
   }, {
     key: "getSystemType",
@@ -198,6 +173,34 @@ var SystemBanner = /*#__PURE__*/function () {
 
   return SystemBanner;
 }();
+
+/***/ }),
+
+/***/ "./assets/systemBanner.pimcore.js":
+/*!****************************************!*\
+  !*** ./assets/systemBanner.pimcore.js ***!
+  \****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _js_SystemBanner__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/SystemBanner */ "./assets/js/SystemBanner.js");
+
+pimcore.registerNS('pimcore.plugin.SystemBannerBundle');
+pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
+  getClassName: function getClassName() {
+    return 'pimcore.plugin.SystemBannerBundle';
+  },
+  initialize: function initialize() {
+    pimcore.plugin.broker.registerPlugin(this);
+  },
+  pimcoreReady: function pimcoreReady() {
+    var systemBanner = new _js_SystemBanner__WEBPACK_IMPORTED_MODULE_0__["SystemBanner"]();
+    systemBanner.show(pimcore.settings.environment);
+  }
+});
+var SystemBannerBundlePlugin = new pimcore.plugin.SystemBannerBundle();
 
 /***/ })
 

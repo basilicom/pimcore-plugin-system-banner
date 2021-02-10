@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/systemBanner.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/systemBanner.standalone.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/systemBanner.js":
-/*!********************************!*\
-  !*** ./assets/systemBanner.js ***!
-  \********************************/
+/***/ "./assets/js/SystemBanner.js":
+/*!***********************************!*\
+  !*** ./assets/js/SystemBanner.js ***!
+  \***********************************/
 /*! exports provided: SystemBanner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -115,18 +115,21 @@ var SystemBanner = /*#__PURE__*/function () {
 
   _createClass(SystemBanner, [{
     key: "show",
-    value: function show() {
+    value: function show(environment) {
       var _this = this;
 
-      fetch('/pimcore-system-banner').then(function (response) {
-        return response.json();
-      }).then(function (responseData) {
-        if (responseData.isAdmin) {
+      if (!environment) {
+        fetch('/pimcore-system-banner/environment').then(function (response) {
+          return response.json();
+        }).then(function (responseData) {
           _this.addCss();
 
           _this.addBanner(responseData.environment);
-        }
-      });
+        });
+      } else {
+        this.addCss();
+        this.addBanner(environment);
+      }
     }
   }, {
     key: "getSystemType",
@@ -170,6 +173,22 @@ var SystemBanner = /*#__PURE__*/function () {
 
   return SystemBanner;
 }();
+
+/***/ }),
+
+/***/ "./assets/systemBanner.standalone.js":
+/*!*******************************************!*\
+  !*** ./assets/systemBanner.standalone.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _js_SystemBanner__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/SystemBanner */ "./assets/js/SystemBanner.js");
+
+var systemBannerStandalone = new _js_SystemBanner__WEBPACK_IMPORTED_MODULE_0__["SystemBanner"]();
+systemBannerStandalone.show();
 
 /***/ })
 

@@ -21,25 +21,21 @@ const environmentAliases = {
         'prod',
         'production'
     ]
-}
+};
 
 export class SystemBanner {
     show(environment) {
         if (!environment) {
-            this.getData();
+            fetch('/pimcore-system-banner/environment')
+                .then((response) => response.json())
+                .then((responseData) => {
+                    this.addCss();
+                    this.addBanner(responseData.environment);
+                });
         } else {
             this.addCss();
             this.addBanner(environment);
         }
-    }
-
-    getData() {
-        fetch('/pimcore-system-banner')
-            .then((response) => response.json())
-            .then((responseData) => {
-                this.addCss();
-                this.addBanner(responseData.environment);
-            });
     }
 
     getSystemType(environment) {
