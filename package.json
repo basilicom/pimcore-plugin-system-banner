@@ -7,9 +7,8 @@
   "description": "A system banner which receives the current environment and show a specific coloured banner.",
   "main": "index.js",
   "scripts": {
-    "build": ".yarn encore prod",
-    "watch": "yarn encore dev --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "yarn encore prod",
+    "watch": "yarn encore dev --watch"
   },
   "repository": {
     "type": "git",
