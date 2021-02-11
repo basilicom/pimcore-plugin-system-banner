@@ -2,7 +2,6 @@
 const Encore = require("@symfony/webpack-encore");
 
 Encore
-    .configureRuntimeEnvironment(process.env.NODE_ENV === "production" ? "production" : "dev")
     .disableSingleRuntimeChunk() // enabling this will create a separate runtime.js
     .setOutputPath("./")
     .setPublicPath("/")
