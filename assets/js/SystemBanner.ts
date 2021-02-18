@@ -16,7 +16,7 @@ const environmentAliases: { [key: string]: Array<string> } = {
 
 export class SystemBanner {
     static show(environment: string = ''): void {
-        if (environment.length > 0) {
+        if (environment.trim() === '') {
             fetch('/pimcore-system-banner/environment')
                 .then((response) => response.json())
                 .then((responseData: EnvironmentRequestResponseData) => {
@@ -29,17 +29,6 @@ export class SystemBanner {
         }
     }
 
-    private static getSystemType(environment: string): string {
-        let systemType = ENVIRONMENT.PROD as string;
-        Object.keys(environmentAliases).forEach((environmentAlias) => {
-            if (environmentAliases[environmentAlias].includes(environment)) {
-                systemType = environmentAlias;
-            }
-        });
-
-        return systemType;
-    }
-
     private static addBanner(environment: string): void {
         const banner = document.createElement('div');
         banner.classList.add('system-banner__banner');
@@ -50,6 +39,17 @@ export class SystemBanner {
         bannerContainer.append(banner);
 
         document.body.append(bannerContainer);
+    }
+
+    private static getSystemType(environment: string): string {
+        let systemType = ENVIRONMENT.PROD as string;
+        Object.keys(environmentAliases).forEach((environmentAlias) => {
+            if (environmentAliases[environmentAlias].includes(environment)) {
+                systemType = environmentAlias;
+            }
+        });
+
+        return systemType;
     }
 
     private static addCss(): void {
