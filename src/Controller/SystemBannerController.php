@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SystemBannerController extends FrontendController
 {
     /**
-     * @Route('/pimcore-system-banner/environment', methods={'GET'})
+     * @Route("/pimcore-system-banner/environment", methods={"GET"})
      */
     public function systemBanner()
     {
