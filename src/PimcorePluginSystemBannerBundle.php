@@ -12,11 +12,4 @@ class PimcorePluginSystemBannerBundle extends AbstractPimcoreBundle
             '/bundles/pimcorepluginsystembanner/js/pimcore/systemBanner.js',
         ];
     }
-
-    public function getCssPaths(): array
-    {
-        return [
-            '/bundles/pimcorepluginsystembanner/css/pimcore/systemBanner.css',
-        ];
-    }
 }

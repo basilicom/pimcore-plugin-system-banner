@@ -4,8 +4,8 @@ yarn-install: ## install npm dependencies
 
 .PHONY: yarn-build
 yarn-build: ## build frontend assets once
-	docker run --rm --volume ${PWD}:/app --workdir /app node:14.13.1-stretch sh -c "yarn encore prod"
+	docker run --rm --volume ${PWD}:/app --workdir /app node:14.13.1-stretch sh -c "yarn build"
 
 .PHONY: yarn-watch
 yarn-watch: ## build frontend assets once
-	docker run --rm --volume ${PWD}:/app --workdir /app node:14.13.1-stretch sh -c "yarn encore dev --watch"
+	docker run --rm --volume ${PWD}:/app --workdir /app node:14.13.1-stretch sh -c "yarn watch"
