@@ -1,34 +1,25 @@
-const environmentAliases = {
-    dev: [
-        'dev',
-        'development',
-    ],
+type EnvironmentRequestResponseData = { environment: string };
 
-    test: [
-        'qa',
-        'qs',
-        'test',
-        'testing',
-    ],
+enum ENVIRONMENT {
+    DEV = 'dev',
+    TEST = 'test',
+    STAGE = 'stage',
+    PROD = 'prod'
+}
 
-    stage: [
-        'stage',
-        'staging'
-    ],
-
-    prod: [
-        'live',
-        'prod',
-        'production'
-    ]
+const environmentAliases: { [key: string]: Array<string> } = {
+    [ENVIRONMENT.DEV]: ['dev', 'development'],
+    [ENVIRONMENT.TEST]: ['qa', 'qs', 'test', 'testing'],
+    [ENVIRONMENT.STAGE]: ['stage', 'staging'],
+    [ENVIRONMENT.PROD]: ['live', 'prod', 'production']
 };
 
 export class SystemBanner {
-    show(environment) {
-        if (!environment) {
+    static show(environment: string = ''): void {
+        if (environment.trim() === '') {
             fetch('/pimcore-system-banner/environment')
                 .then((response) => response.json())
-                .then((responseData) => {
+                .then((responseData: EnvironmentRequestResponseData) => {
                     this.addCss();
                     this.addBanner(responseData.environment);
                 });
@@ -38,18 +29,7 @@ export class SystemBanner {
         }
     }
 
-    getSystemType(environment) {
-        let systemType = 'prod';
-        Object.keys(environmentAliases).forEach((environmentAlias) => {
-            if (environmentAliases[environmentAlias].includes(environment)) {
-                systemType = environmentAlias;
-            }
-        });
-
-        return systemType;
-    }
-
-    addBanner(environment) {
+    private static addBanner(environment: string): void {
         const banner = document.createElement('div');
         banner.classList.add('system-banner__banner');
         banner.innerText = environment;
@@ -61,7 +41,18 @@ export class SystemBanner {
         document.body.append(bannerContainer);
     }
 
-    addCss() {
+    private static getSystemType(environment: string): string {
+        let systemType = ENVIRONMENT.PROD as string;
+        Object.keys(environmentAliases).forEach((environmentAlias) => {
+            if (environmentAliases[environmentAlias].includes(environment)) {
+                systemType = environmentAlias;
+            }
+        });
+
+        return systemType;
+    }
+
+    private static addCss(): void {
         const cssId = 'system-banner-css';
         if (!document.getElementById(cssId)) {
             const head = document.getElementsByTagName('head')[0];

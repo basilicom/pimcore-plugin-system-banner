@@ -1,19 +1,19 @@
-import {SystemBanner} from "./js/SystemBanner";
+import {SystemBanner} from './js/SystemBanner';
+
+declare const pimcore: any;
+declare const Class: any;
 
 pimcore.registerNS('pimcore.plugin.SystemBannerBundle');
 pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
-    getClassName: function () {
-        return 'pimcore.plugin.SystemBannerBundle';
+    getClassName: () => 'pimcore.plugin.SystemBannerBundle',
+
+    pimcoreReady: () => {
+        SystemBanner.show(pimcore.settings.environment);
     },
 
     initialize: function () {
         pimcore.plugin.broker.registerPlugin(this);
     },
-
-    pimcoreReady: function () {
-        const systemBanner = new SystemBanner();
-        systemBanner.show(pimcore.settings.environment);
-    }
 });
 
 const SystemBannerBundlePlugin = new pimcore.plugin.SystemBannerBundle();

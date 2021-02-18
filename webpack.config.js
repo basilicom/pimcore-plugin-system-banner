@@ -17,8 +17,10 @@ Encore
     .enableSourceMaps(false)
     .enableVersioning(false)
 
-    .addEntry("./src/Resources/public/js/systemBanner", "./assets/systemBanner.standalone.js")
-    .addEntry("./src/Resources/public/js/pimcore/systemBanner", "./assets/systemBanner.pimcore.js")
+    .enableTypeScriptLoader()
+
+    .addEntry("./src/Resources/public/js/systemBanner", "./assets/systemBanner.standalone.ts")
+    .addEntry("./src/Resources/public/js/pimcore/systemBanner", "./assets/systemBanner.pimcore.ts")
     .addStyleEntry("./src/Resources/public/css/pimcore/systemBanner", "./assets/scss/systemBanner.scss")
 ;
 
