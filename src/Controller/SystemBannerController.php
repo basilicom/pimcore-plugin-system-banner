@@ -19,7 +19,7 @@ class SystemBannerController extends FrontendController
         /** @var User $user */
         $user = Session::getReadonly()->get('user');
         if (empty($user)) {
-            return JsonResponse::create(null, 400);
+            return JsonResponse::create(null, 403);
         }
 
         return JsonResponse::create(

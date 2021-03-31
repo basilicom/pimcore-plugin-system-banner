@@ -18,10 +18,19 @@ export class SystemBanner {
     static show(environment: string = ''): void {
         if (environment.trim() === '') {
             fetch('/pimcore-system-banner/environment')
-                .then((response) => response.json())
+                .then((response) => {
+                    if (response.status !== 200) {
+                        throw new Error("Not 200 response");
+                    }
+                    return response.json();
+                })
                 .then((responseData: EnvironmentRequestResponseData) => {
+                    console.error('responseData:', responseData);
                     this.addCss();
                     this.addBanner(responseData.environment);
+                })
+                .catch(() => {
+                    // do nothing and show nothing
                 });
         } else {
             this.addCss();
