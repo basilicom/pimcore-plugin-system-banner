@@ -7,6 +7,7 @@ use Pimcore\Controller\FrontendController;
 use Pimcore\Model\User;
 use Pimcore\Tool\Session;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class SystemBannerController extends FrontendController
@@ -19,7 +20,7 @@ class SystemBannerController extends FrontendController
         /** @var User $user */
         $user = Session::getReadonly()->get('user');
         if (empty($user)) {
-            return JsonResponse::create(null, 403);
+            return JsonResponse::create(null, Response::HTTP_FORBIDDEN);
         }
 
         return JsonResponse::create(
