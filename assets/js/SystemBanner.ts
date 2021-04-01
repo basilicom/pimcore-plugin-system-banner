@@ -25,7 +25,6 @@ export class SystemBanner {
                     return response.json();
                 })
                 .then((responseData: EnvironmentRequestResponseData) => {
-                    console.error('responseData:', responseData);
                     this.addCss();
                     this.addBanner(responseData.environment);
                 })
