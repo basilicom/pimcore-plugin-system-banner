@@ -1,9 +1,34 @@
 # Pimcore Plugin System Banner
 
-## Why?
 This plugin will show a banner on the top right with the PIMCORE_ENVIRONMENT name.
 
-It will be red, if you are on production. Otherwise green.
+* development environments = green
+* test environments = purple
+* stage environments = yellow
+* prod environments = red
+
+![Environment dev](docs/environment-dev.jpg)
+
+
+## Installation
+
+```
+composer require basilicom/pimcore-plugin-system-banner
+```
+
+
+### Activate Plugin
+
+* Add to AppKernel.php
+
+or
+
+* Activate in the Pimcore backend
+
+### build assets
+e.g.
+```bin/console assets:install web --symlink --relative```
+
 
 ## Add the banner to the frontend (only when backend user is active)
 
