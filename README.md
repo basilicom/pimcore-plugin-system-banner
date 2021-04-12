@@ -1,6 +1,8 @@
 # Pimcore Plugin System Banner
 
-This plugin will show a banner on the top right with the PIMCORE_ENVIRONMENT name.
+Shows a banner of the pimcore environment, to indicate if you are on prod or dev or else.
+
+Uses the PIMCORE_ENVIRONMENT.
 
 * development environments = green
 * test environments = purple
