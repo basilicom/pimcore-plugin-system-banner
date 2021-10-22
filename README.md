@@ -26,8 +26,11 @@ or
 * Activate in the Pimcore backend
 
 ### build assets
-e.g.
+e.g. for Pimcore <= X respectively Symfony < 5
 ```bin/console assets:install web --symlink --relative```
+
+e.g. for Pimcore X respectively Symfony > 5
+```bin/console assets:install public --symlink --relative```
 
 
 ## Add the banner to the frontend (only when backend user is active)
