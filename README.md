@@ -27,9 +27,11 @@ or
 
 ### build assets
 e.g. for Pimcore <= X respectively Symfony < 5
+
 ```bin/console assets:install web --symlink --relative```
 
 e.g. for Pimcore X respectively Symfony > 5
+
 ```bin/console assets:install public --symlink --relative```
 
 
