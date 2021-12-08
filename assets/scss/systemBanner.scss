@@ -1,7 +1,10 @@
 .system-banner {
+  opacity: 0.9;
+  pointer-events: none;
   position: fixed;
   right: 0;
   top: 0;
+  user-select: none;
   z-index: 9999;
 
   &__banner {
@@ -41,7 +44,6 @@
       left: 100%;
     }
   }
-
 
   &--prod .system-banner__banner:before,
   &--prod .system-banner__banner:after,

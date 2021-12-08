@@ -15,15 +15,15 @@ class SystemBannerController extends FrontendController
     /**
      * @Route("/pimcore-system-banner/environment", methods={"GET"})
      */
-    public function systemBanner()
+    public function systemBanner(): JsonResponse
     {
         /** @var User $user */
         $user = Session::getReadonly()->get('user');
         if (empty($user)) {
-            return JsonResponse::create(null, Response::HTTP_FORBIDDEN);
+            return new JsonResponse(null, Response::HTTP_FORBIDDEN);
         }
 
-        return JsonResponse::create(
+        return new JsonResponse(
             [
                 'environment' => Config::getEnvironment(),
             ],

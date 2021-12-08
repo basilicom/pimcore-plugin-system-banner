@@ -14,7 +14,8 @@ class SystemBannerExtension extends AbstractExtension
         ];
     }
 
-    public function getSystemBanner() {
+    public function getSystemBanner(): string
+    {
         return '<script src="/bundles/pimcorepluginsystembanner/js/systemBanner.js"></script>';
     }
 }

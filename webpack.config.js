@@ -1,5 +1,6 @@
 // @see https://github.com/symfony/webpack-encore/blob/master/index.js for full API
 const Encore = require("@symfony/webpack-encore");
+const path = require("path");
 
 Encore
     .disableSingleRuntimeChunk() // enabling this will create a separate runtime.js
@@ -11,7 +12,10 @@ Encore
 
     .enableSassLoader()
     .enablePostCssLoader((options) => {
-        options.plugins = [require("autoprefixer")()];
+        options.postcssOptions = {
+            // the directory where the postcss.config.js file is stored
+            config: path.resolve(__dirname, '', 'postcss.config.js'),
+        };
     })
 
     .enableSourceMaps(false)
