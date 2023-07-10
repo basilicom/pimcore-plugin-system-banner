@@ -62,8 +62,18 @@ use the following twig function
 {{ renderSystemBanner() | raw }}
 ```
 
-## customize the env name
+## customize the env name and color
 You can customize the display of the name in the .env file (or .env.local). Use the following variable:
 ```
-ENVIRONMENT_NAME="My env name"
+SYSTEM_BANNER_TEXT="My env name"
 ```
+To customize the color, you can use the following variable:
+```
+SYSTEM_BANNER_COLOR=purple
+```
+you can choose between:
+- green 
+- yellow 
+- red 
+- purple
+- blue

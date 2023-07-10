@@ -1,4 +1,4 @@
-type EnvironmentRequestResponseData = { environment: string, environmentText: string };
+type EnvironmentRequestResponseData = { environment: string, text: string, color?: string };
 
 enum ENVIRONMENT {
     DEV = 'dev',
@@ -33,17 +33,20 @@ export class SystemBanner {
                 });
         } else {
             this.addCss();
-            this.addBanner({environmentText: environment, environment: environment});
+            this.addBanner({text: environment, environment: environment});
         }
     }
 
     private static addBanner(environmentData: EnvironmentRequestResponseData): void {
         const banner = document.createElement('div');
         banner.classList.add('system-banner__banner');
-        banner.innerText = environmentData.environmentText;
+        banner.innerText = environmentData.text;
 
         const bannerContainer = document.createElement('div');
         bannerContainer.classList.add('system-banner', 'system-banner--' + this.getSystemType(environmentData.environment));
+        if (environmentData.color) {
+            bannerContainer.classList.add('system-banner--' + environmentData.color);
+        }
         bannerContainer.append(banner);
 
         document.body.append(bannerContainer);

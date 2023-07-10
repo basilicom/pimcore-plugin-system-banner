@@ -1,3 +1,7 @@
+:root {
+  --system-banner-backgound: #3e3e3e;
+}
+
 .system-banner {
   opacity: 0.9;
   pointer-events: none;
@@ -25,6 +29,7 @@
     top: 0;
     transform: translateX(30%) translateY(0%) rotate(45deg);
     transform-origin: top left;
+    background-color: var(--system-banner-backgound);
 
     &:before,
     &:after {
@@ -34,6 +39,7 @@
       position: absolute;
       top: 0;
       width: 100%;
+      background-color: var(--system-banner-backgound);
     }
 
     &:before {
@@ -45,27 +51,23 @@
     }
   }
 
-  &--prod .system-banner__banner:before,
-  &--prod .system-banner__banner:after,
-  &--prod .system-banner__banner {
-    background-color: #b80b0b;
+  &--prod .system-banner__banner, &--red .system-banner__banner {
+    --system-banner-backgound: #b80b0b;
   }
 
-  &--dev .system-banner__banner:before,
-  &--dev .system-banner__banner:after,
-  &--dev .system-banner__banner {
-    background-color: #00a808;
+  &--dev .system-banner__banner, &--green .system-banner__banner {
+    --system-banner-backgound: #00a808;
   }
 
-  &--stage .system-banner__banner:before,
-  &--stage .system-banner__banner:after,
-  &--stage .system-banner__banner {
-    background-color: #ffff33;
+  &--stage .system-banner__banner, &--yellow .system-banner__banner {
+    --system-banner-backgound: #ffff33;
   }
 
-  &--test .system-banner__banner:before,
-  &--test .system-banner__banner:after,
-  &--test .system-banner__banner {
-    background-color: #a067cf;
+  &--test .system-banner__banner, &--purple .system-banner__banner {
+    --system-banner-backgound: #a067cf;
+  }
+
+  &--blue .system-banner__banner {
+    --system-banner-backgound: #1e4795;
   }
 }
