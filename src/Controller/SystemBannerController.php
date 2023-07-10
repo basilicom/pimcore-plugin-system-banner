@@ -23,9 +23,15 @@ class SystemBannerController extends FrontendController
             return new JsonResponse(null, Response::HTTP_FORBIDDEN);
         }
 
+        $environmentName = Config::getEnvironment();
+        if (empty($_ENV['ENVIRONMENT_NAME']) === false) {
+            $environmentName = trim($_ENV['ENVIRONMENT_NAME']);
+        }
+
         return new JsonResponse(
             [
-                'environment' => Config::getEnvironment(),
+                'environment'     => Config::getEnvironment(),
+                'environmentText' => $environmentName,
             ],
             200
         );

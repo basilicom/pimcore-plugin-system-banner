@@ -61,3 +61,9 @@ use the following twig function
 ``` 
 {{ renderSystemBanner() | raw }}
 ```
+
+## customize the env name
+You can customize the display of the name in the .env file (or .env.local). Use the following variable:
+```
+ENVIRONMENT_NAME="My env name"
+```
