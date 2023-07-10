@@ -33,7 +33,7 @@ export class SystemBanner {
                 });
         } else {
             this.addCss();
-            this.addBanner({text: environment, environment: environment});
+            this.addBanner({text: environment, environment});
         }
     }
 
@@ -43,9 +43,11 @@ export class SystemBanner {
         banner.innerText = environmentData.text;
 
         const bannerContainer = document.createElement('div');
-        bannerContainer.classList.add('system-banner', 'system-banner--' + this.getSystemType(environmentData.environment));
+        bannerContainer.classList.add('system-banner');
         if (environmentData.color) {
             bannerContainer.classList.add('system-banner--' + environmentData.color);
+        } else {
+            bannerContainer.classList.add('system-banner--' + this.getSystemType(environmentData.environment));
         }
         bannerContainer.append(banner);
 
