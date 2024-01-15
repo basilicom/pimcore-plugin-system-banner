@@ -8,7 +8,7 @@ pimcore.plugin.SystemBannerBundle = Class.create(pimcore.plugin.admin, {
     getClassName: () => 'pimcore.plugin.SystemBannerBundle',
 
     pimcoreReady: () => {
-        SystemBanner.show(pimcore.settings.environment);
+        SystemBanner.show();
     },
 
     initialize: function () {
