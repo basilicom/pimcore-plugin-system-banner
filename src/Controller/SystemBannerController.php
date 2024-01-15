@@ -14,7 +14,7 @@ class SystemBannerController extends FrontendController
 {
     private const VALID_COLORS = [
         'red',
-        'orange',
+        'yellow',
         'green',
         'purple',
         'blue',
