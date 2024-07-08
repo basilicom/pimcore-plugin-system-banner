@@ -4,10 +4,7 @@ namespace Basilicom\PimcorePluginSystemBanner\Controller;
 
 use Pimcore\Config;
 use Pimcore\Controller\FrontendController;
-use Pimcore\Model\User;
-use Pimcore\Tool\Session;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class SystemBannerController extends FrontendController
@@ -19,17 +16,12 @@ class SystemBannerController extends FrontendController
         'purple',
         'blue',
     ];
+
     /**
-     * @Route("/pimcore-system-banner/environment", methods={"GET"})
+     * @Route("/admin/pimcore-system-banner", methods={"GET"})
      */
     public function systemBanner(): JsonResponse
     {
-        /** @var User $user */
-        $user = Session::getReadonly()->get('user');
-        if (empty($user)) {
-            return new JsonResponse(null, Response::HTTP_FORBIDDEN);
-        }
-
         $environmentName = Config::getEnvironment();
         $color = null;
         if (empty($_ENV['SYSTEM_BANNER_TEXT']) === false) {

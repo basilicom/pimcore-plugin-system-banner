@@ -1,3 +1,5 @@
+import * as routes from '../routes.json';
+
 type EnvironmentRequestResponseData = { environment: string, text: string, color?: string };
 
 enum ENVIRONMENT {
@@ -17,7 +19,7 @@ const environmentAliases: { [key: string]: Array<string> } = {
 export class SystemBanner {
     static show(environment: string = ''): void {
         if (environment.trim() === '') {
-            fetch('/pimcore-system-banner/environment')
+            fetch(routes["get-environment"])
                 .then((response) => {
                     if (response.status !== 200) {
                         throw new Error("Not 200 response");
@@ -74,7 +76,7 @@ export class SystemBanner {
             link.id = cssId;
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = '/bundles/pimcorepluginsystembanner/css/pimcore/systemBanner.css';
+            link.href = '/bundles/pimcorepluginsystembanner/css/pimcore/system-banner.css';
             link.media = 'all';
 
             head.appendChild(link);

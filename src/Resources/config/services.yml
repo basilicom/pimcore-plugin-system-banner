@@ -9,11 +9,6 @@ services:
     # if you need to do this, you can override this setting on individual services
     public: false
 
-  Basilicom\PimcorePluginSystemBanner\Twig\:
-    resource: '../../Twig'
-    tags:
-      - twig.extension
-
   # auto-register all controllers as services
   Basilicom\PimcorePluginSystemBanner\Controller\:
     resource: '../../Controller'
