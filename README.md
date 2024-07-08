@@ -13,10 +13,11 @@ it is used the .env variable APP_ENV.
 
 ## Version information
 
-| Bundle Version | PHP | Pimcore |
-| ----------- | -----------| ----------- |
-| &lt; 2.0 | ^7.3 | ^6.0 |
-| &gt;= 2.0 | ^8.0 | ^10.0 |
+| Bundle Version | PHP  | Pimcore |
+|----------------|------|---------|
+| &lt; 2.0       | ^7.3 | ^6.0    |
+| &gt;= 2.0      | ^8.0 | ^10.0   |
+| &gt;= 3.0      | ^8.1 | ^11.0   |
 
 ## Installation
 
@@ -41,8 +42,8 @@ or
 
 * Activate in the Pimcore backend in Tools -> Bundles & Bricks
 
-### build assets
-for Pimcore X respectively Symfony 5
+### Build assets
+for Pimcore >= 10
 
 ```bin/console assets:install public --symlink --relative```
 
@@ -51,18 +52,7 @@ for lower than Pimcore X respectively lower than Symfony 5
 
 ```bin/console assets:install web --symlink --relative```
 
-
-
-## Add the banner to the frontend
-
-It will only show the banner when a backend user is active.
-
-use the following twig function
-``` 
-{{ renderSystemBanner() | raw }}
-```
-
-## customize the env name and color
+## Customize the env name and color
 You can customize the display of the name in the .env file (or .env.local). Use the following variable:
 ```
 SYSTEM_BANNER_TEXT="My env name"

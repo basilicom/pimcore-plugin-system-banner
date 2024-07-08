@@ -7,3 +7,5 @@ node_modules
 entrypoints.json
 manifest.json
 package-lock.json
+
+composer.lock
