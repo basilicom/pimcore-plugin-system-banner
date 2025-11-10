@@ -18,6 +18,7 @@ it is used the .env variable APP_ENV.
 | &lt; 2.0       | ^7.3 | ^6.0    |
 | &gt;= 2.0      | ^8.0 | ^10.0   |
 | &gt;= 3.0      | ^8.1 | ^11.0   |
+| &gt;= 4.0      | ^8.3 | ^12.0   |
 
 ## Installation
 
@@ -28,14 +29,13 @@ composer require basilicom/pimcore-plugin-system-banner
 
 ### Activate Plugin
 
-* Add to \App\Kernel.php
+* Add to config/bundles.php
 ``` 
-public function registerBundlesToCollection(BundleCollection $collection)
-{
-    // ...
-    $collection->addBundle(new PimcorePluginSystemBannerBundle());
-    // ...
-}
+return [
+    ...
+    PimcorePluginSystemBannerBundle::class => ['all' => true],
+];
+
 ```
 
 or
