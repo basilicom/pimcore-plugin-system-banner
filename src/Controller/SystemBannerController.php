@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SystemBannerController extends FrontendController
 {
-    private const VALID_COLORS = [
+    private const array VALID_COLORS = [
         'red',
         'yellow',
         'green',
@@ -17,9 +17,7 @@ class SystemBannerController extends FrontendController
         'blue',
     ];
 
-    /**
-     * @Route("/admin/pimcore-system-banner", methods={"GET"})
-     */
+    #[Route("/admin/pimcore-system-banner", methods: ["GET"])]
     public function systemBanner(): JsonResponse
     {
         $environmentName = Config::getEnvironment();
