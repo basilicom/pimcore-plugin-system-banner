@@ -1,73 +1,53 @@
 :root {
-  --system-banner-background: #3e3e3e;
+    --system-banner-background: #3e3e3e;
 }
 
 .system-banner {
-  opacity: 0.9;
-  pointer-events: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  user-select: none;
-  z-index: 9999;
-
-  &__banner {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: sans-serif;
-    line-height: normal;
-    margin: 0;
-    width: 100px;
-    padding: 10px 0;
+    opacity: 0.9;
     pointer-events: none;
-    text-align: center;
-    text-transform: uppercase;
-    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+    position: fixed;
+    right: 0;
     top: 0;
-    transform: translateX(30%) translateY(0%) rotate(45deg);
-    transform-origin: top left;
-    background-color: var(--system-banner-background);
+    user-select: none;
+    z-index: 9999;
 
-    &:before,
-    &:after {
-      content: '';
-      height: 100%;
-      margin: 0 -1px;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      background-color: var(--system-banner-background);
+    &__banner {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+        line-height: normal;
+        margin: 0;
+        width: 100px;
+        padding: 10px 0;
+        pointer-events: none;
+        text-align: center;
+        text-transform: uppercase;
+        -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        top: 0;
+        transform: translateX(30%) translateY(0%) rotate(45deg);
+        transform-origin: top left;
+        background-color: var(--system-banner-background);
+
+        &:before,
+        &:after {
+            content: '';
+            height: 100%;
+            margin: 0 -1px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: var(--system-banner-background);
+        }
+
+        &:before {
+            right: 100%;
+        }
+
+        &:after {
+            left: 100%;
+        }
     }
-
-    &:before {
-      right: 100%;
-    }
-
-    &:after {
-      left: 100%;
-    }
-  }
-
-  &--prod .system-banner__banner, &--red .system-banner__banner {
-    --system-banner-background: #b80b0b;
-  }
-
-  &--dev .system-banner__banner, &--green .system-banner__banner {
-    --system-banner-background: #00a808;
-  }
-
-  &--stage .system-banner__banner, &--yellow .system-banner__banner {
-    --system-banner-background: #ffff33;
-  }
-
-  &--test .system-banner__banner, &--purple .system-banner__banner {
-    --system-banner-background: #a067cf;
-  }
-
-  &--blue .system-banner__banner {
-    --system-banner-background: #1e4795;
-  }
 }

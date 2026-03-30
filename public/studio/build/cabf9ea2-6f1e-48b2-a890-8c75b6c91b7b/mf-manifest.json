@@ -1,0 +1,89 @@
+{
+  "id": "pimcore_plugin_system_banner_bundle",
+  "name": "pimcore_plugin_system_banner_bundle",
+  "metaData": {
+    "name": "pimcore_plugin_system_banner_bundle",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "1.0.0",
+      "buildName": "pimcore-plugin-system-banner"
+    },
+    "remoteEntry": {
+      "name": "static/js/remoteEntry.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "@mf-types.zip",
+      "api": "@mf-types.d.ts"
+    },
+    "globalName": "pimcore_plugin_system_banner_bundle",
+    "pluginVersion": "2.3.0",
+    "prefetchInterface": false,
+    "publicPath": "/bundles/pimcorepluginsystembanner/studio/build/cabf9ea2-6f1e-48b2-a890-8c75b6c91b7b/"
+  },
+  "shared": [
+    {
+      "id": "pimcore_plugin_system_banner_bundle:react",
+      "name": "react",
+      "version": "18.3.1",
+      "singleton": true,
+      "requiredVersion": "^18.3.1",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "static/js/237.536df549.js",
+            "static/js/remoteEntry.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "fallback": ""
+    }
+  ],
+  "remotes": [
+    {
+      "federationContainerName": "promise new Promise(resolve => {\n    const remoteUrl = window.StudioUIBundleRemoteUrl\n    \n    // Check if the container is already available\n    if (window['pimcore_studio_ui_bundle']) {\n      resolve({\n        get: (request) => window['pimcore_studio_ui_bundle'].get(request),\n        init: (...arg) => {\n          try {\n            return window['pimcore_studio_ui_bundle'].init(...arg)\n          } catch(e) {\n            console.log('remote container already initialized')\n          }\n        }\n      })\n      return\n    }\n\n    const script = document.createElement('script')\n    script.src = remoteUrl\n    script.onload = () => {\n      const proxy = {\n        get: (request) => window['pimcore_studio_ui_bundle'].get(request),\n        init: (...arg) => {\n          try {\n            return window['pimcore_studio_ui_bundle'].init(...arg)\n          } catch(e) {\n            console.log('remote container already initialized')\n          }\n        }\n      }\n      resolve(proxy)\n    }\n    document.head.appendChild(script);\n  })\n  ",
+      "moduleName": ".",
+      "alias": "@pimcore/studio-ui-bundle",
+      "entry": "*"
+    },
+    {
+      "federationContainerName": "promise new Promise(resolve => {\n    const remoteUrl = window.StudioUIBundleRemoteUrl\n    \n    // Check if the container is already available\n    if (window['pimcore_studio_ui_bundle']) {\n      resolve({\n        get: (request) => window['pimcore_studio_ui_bundle'].get(request),\n        init: (...arg) => {\n          try {\n            return window['pimcore_studio_ui_bundle'].init(...arg)\n          } catch(e) {\n            console.log('remote container already initialized')\n          }\n        }\n      })\n      return\n    }\n\n    const script = document.createElement('script')\n    script.src = remoteUrl\n    script.onload = () => {\n      const proxy = {\n        get: (request) => window['pimcore_studio_ui_bundle'].get(request),\n        init: (...arg) => {\n          try {\n            return window['pimcore_studio_ui_bundle'].init(...arg)\n          } catch(e) {\n            console.log('remote container already initialized')\n          }\n        }\n      }\n      resolve(proxy)\n    }\n    document.head.appendChild(script);\n  })\n  ",
+      "moduleName": "app",
+      "alias": "@pimcore/studio-ui-bundle",
+      "entry": "*"
+    },
+    {
+      "federationContainerName": "promise new Promise(resolve => {\n    const remoteUrl = window.StudioUIBundleRemoteUrl\n    \n    // Check if the container is already available\n    if (window['pimcore_studio_ui_bundle']) {\n      resolve({\n        get: (request) => window['pimcore_studio_ui_bundle'].get(request),\n        init: (...arg) => {\n          try {\n            return window['pimcore_studio_ui_bundle'].init(...arg)\n          } catch(e) {\n            console.log('remote container already initialized')\n          }\n        }\n      })\n      return\n    }\n\n    const script = document.createElement('script')\n    script.src = remoteUrl\n    script.onload = () => {\n      const proxy = {\n        get: (request) => window['pimcore_studio_ui_bundle'].get(request),\n        init: (...arg) => {\n          try {\n            return window['pimcore_studio_ui_bundle'].init(...arg)\n          } catch(e) {\n            console.log('remote container already initialized')\n          }\n        }\n      }\n      resolve(proxy)\n    }\n    document.head.appendChild(script);\n  })\n  ",
+      "moduleName": "modules/app",
+      "alias": "@pimcore/studio-ui-bundle",
+      "entry": "*"
+    }
+  ],
+  "exposes": [
+    {
+      "id": "pimcore_plugin_system_banner_bundle:.",
+      "name": ".",
+      "assets": {
+        "js": {
+          "sync": [
+            "static/js/async/__federation_expose_default_export.ae351458.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "path": "."
+    }
+  ]
+}

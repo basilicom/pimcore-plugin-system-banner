@@ -14,7 +14,7 @@
         "emitDecoratorMetadata": true,
         "skipLibCheck": true,
         "paths": {
-            "*": ["./@mf-types/*"]
+            "@remote/*": ["./@mf-types/*"]
         }
     },
 

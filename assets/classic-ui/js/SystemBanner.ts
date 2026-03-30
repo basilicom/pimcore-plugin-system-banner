@@ -28,13 +28,8 @@ export class SystemBanner {
 
         const bannerContainer = document.createElement('div');
         bannerContainer.classList.add('system-banner');
-        if (environmentData.color) {
-            bannerContainer.classList.add('system-banner--' + environmentData.color);
-        } else {
-            bannerContainer.classList.add('system-banner--' + getSystemType(environmentData.environment));
-        }
+        document.body.style.setProperty('--system-banner-background', '' + environmentData.color);
         bannerContainer.append(banner);
-
         document.body.append(bannerContainer);
     }
 
