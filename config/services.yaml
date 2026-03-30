@@ -9,6 +9,12 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
+    # auto-register all controllers as services
+    Basilicom\PimcorePluginSystemBanner\Controller\:
+        resource: '../src/Controller'
+        public: true
+        tags: [ 'controller.service_arguments' ]
+
     Basilicom\PimcorePluginSystemBanner\Webpack\WebpackEntryPointProvider:
         tags:
             - { name: pimcore_studio_ui.webpack_entry_point_provider }
