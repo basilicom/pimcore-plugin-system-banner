@@ -25,6 +25,10 @@
         {
             "name": "Alexander Heidrich",
             "email": "alexander.heidrich@basilicom.de"
+        },
+        {
+            "name": "Marco Senkpiel",
+            "email": "marco.senkpiel@basilicom.de"
         }
     ],
     "license": "MIT",
