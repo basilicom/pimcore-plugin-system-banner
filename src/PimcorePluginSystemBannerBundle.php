@@ -6,7 +6,6 @@ use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use Pimcore\Extension\Bundle\PimcoreBundleAdminClassicInterface;
 use Pimcore\Extension\Bundle\Traits\BundleAdminClassicTrait;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
-use Pimcore\Helper\EncoreHelper;
 
 class PimcorePluginSystemBannerBundle extends AbstractPimcoreBundle implements PimcoreBundleAdminClassicInterface
 {
@@ -23,13 +22,8 @@ class PimcorePluginSystemBannerBundle extends AbstractPimcoreBundle implements P
         return ['/bundles/pimcorepluginsystembanner/css/pimcore/system-banner.css'];
     }
 
-    public function getEditmodeJsPaths(): array
+    public function getPath(): string
     {
-        return [];
-    }
-
-    public function getEditmodeCssPaths(): array
-    {
-        return [];
+        return \dirname(__DIR__);
     }
 }

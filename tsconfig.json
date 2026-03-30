@@ -19,7 +19,7 @@
     },
 
     "include": [
-        "./assets/js/**/*",
+        "./assets/classic-ui/js/**/*",
         "./@mf-types/*"
     ],
 }

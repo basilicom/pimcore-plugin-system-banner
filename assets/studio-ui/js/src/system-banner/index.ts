@@ -5,6 +5,7 @@ export const SystemBannerPlugin: IAbstractPlugin = {
     name: 'SystemBannerPlugin',
 
     onStartup ({ moduleSystem }) {
-        moduleSystem.registerModule(LeftSidebarExtension)
+        moduleSystem.registerModule(LeftSidebarExtension);
+        console.log('Hello from System BannerPlugin.');
     }
 }
