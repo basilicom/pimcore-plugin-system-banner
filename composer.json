@@ -11,6 +11,14 @@
         {
             "name": "Fabian Fischer",
             "email": "fabian.fischer@basilicom.de"
+        },
+        {
+            "name": "Alexander Heidrich",
+            "email": "alexander.heidrich@basilicom.de"
+        },
+        {
+            "name": "Marco Senkpiel",
+            "email": "marco.senkpiel@basilicom.de"
         }
     ],
     "autoload": {

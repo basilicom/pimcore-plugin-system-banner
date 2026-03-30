@@ -4,8 +4,11 @@
 # webpack
 vendor
 node_modules
-entrypoints.json
-manifest.json
+/entrypoints.json
+/manifest.json
 package-lock.json
 
 composer.lock
+
+# built assets
+/public/

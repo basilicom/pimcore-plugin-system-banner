@@ -1,54 +1,69 @@
 {
-  "name": "pimcore-plugin-system-banner",
-  "version": "1.0.0",
-  "engines": {
-    "node": ">=12.0.0"
-  },
-  "description": "A system banner which receives the current environment and show a specific coloured banner.",
-  "main": "index.js",
-  "scripts": {
-    "build": "yarn encore prod",
-    "watch": "yarn encore dev --watch"
-  },
-  "author": "",
-  "contributors": [
-    {
-      "name": "Kerstin Gerull",
-      "email": "kerstin.gerull@basilicom.de"
+    "name": "pimcore-plugin-system-banner",
+    "version": "1.0.0",
+    "engines": {
+        "node": ">=12.0.0"
     },
-    {
-      "name": "Fabian Fischer",
-      "email": "fabian.fischer@basilicom.de"
+    "description": "A system banner which receives the current environment and show a specific coloured banner.",
+    "main": "index.js",
+    "scripts": {
+        "build": "yarn encore prod",
+        "watch": "yarn encore dev --watch",
+        "build-studio": "rsbuild build",
+        "build-all": "yarn build && yarn build-studio"
     },
-    {
-      "name": "Alexander Heidrich",
-      "email": "alexander.heidrich@basilicom.de"
+    "author": "",
+    "contributors": [
+        {
+            "name": "Kerstin Gerull",
+            "email": "kerstin.gerull@basilicom.de"
+        },
+        {
+            "name": "Fabian Fischer",
+            "email": "fabian.fischer@basilicom.de"
+        },
+        {
+            "name": "Alexander Heidrich",
+            "email": "alexander.heidrich@basilicom.de"
+        }
+    ],
+    "license": "MIT",
+    "homepage": "https://basilicom.de",
+    "browserslist": [
+        "> 0.5%",
+        "last 2 versions",
+        "not dead",
+        "ie >= 10"
+    ],
+    "devDependencies": {
+        "@babel/cli": "7.28.3",
+        "@babel/core": "7.28.5",
+        "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+        "@babel/plugin-transform-arrow-functions": "^7.27.1",
+        "@babel/preset-env": "7.28.5",
+        "@babel/preset-react": "^7.23.3",
+        "@module-federation/rsbuild-plugin": "^2.2.3",
+        "@rsbuild/core": "^1.7.3",
+        "@rsbuild/plugin-react": "^1.4.6",
+        "@symfony/webpack-encore": "5.2.0",
+        "@types/uuid": "^11.0.0",
+        "@types/webpack-env": "^1.18.8",
+        "autoprefixer": "^10.4.21",
+        "postcss-loader": "^8.2.0",
+        "sass": "^1.93.3",
+        "sass-loader": "^16.0.6",
+        "semver": "7.7.3",
+        "ts-loader": "9.5.4",
+        "tsd": "^0.33.0",
+        "typescript": "^5.9.3",
+        "webpack": "^5.102.1",
+        "webpack-cli": "^6.0.1",
+        "uuid": "^10.0.0"
+    },
+    "dependencies": {
+        "@pimcore/studio-ui-bundle": "^0.15.17",
+        "@rsbuild/plugin-sass": "^1.5.1",
+        "react": "18.3.x",
+        "react-dom": "18.3.x"
     }
-  ],
-  "license": "MIT",
-  "homepage": "https://basilicom.de",
-  "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "not dead",
-    "ie >= 10"
-  ],
-  "devDependencies": {
-    "@babel/cli": "7.28.3",
-    "@babel/core": "7.28.5",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/plugin-transform-arrow-functions": "^7.27.1",
-    "@babel/preset-env": "7.28.5",
-    "@symfony/webpack-encore": "5.2.0",
-    "autoprefixer": "^10.4.21",
-    "postcss-loader": "^8.2.0",
-    "sass": "^1.93.3",
-    "sass-loader": "^16.0.6",
-    "semver": "7.7.3",
-    "ts-loader": "9.5.4",
-    "tsd": "^0.33.0",
-    "typescript": "^5.9.3",
-    "webpack": "^5.102.1",
-    "webpack-cli": "^6.0.1"
-  }
 }

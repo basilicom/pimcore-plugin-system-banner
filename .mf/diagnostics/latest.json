@@ -1,0 +1,10 @@
+{
+  "latestErrorEvent": {
+    "code": "TYPE-001",
+    "message": "Failed to generate type declaration. Execute the below cmd to reproduce and fix the error. #TYPE-001\nargs: {\"cmd\":\"yarn tsc --project /app/node_modules/.federation/tsconfig.de9070da03f8e2c783be058b4ff31fb6.json\"}\nView the docs to see how to solve: https://module-federation.io/guide/troubleshooting/type#type-001",
+    "args": {
+      "cmd": "yarn tsc --project /app/node_modules/.federation/tsconfig.de9070da03f8e2c783be058b4ff31fb6.json"
+    },
+    "timestamp": 1774528976463
+  }
+}

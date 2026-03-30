@@ -23,9 +23,9 @@ Encore
 
     .enableTypeScriptLoader()
 
-    .addEntry("./src/Resources/public/js/system-banner", "./assets/system-banner.standalone.ts")
-    .addEntry("./src/Resources/public/js/pimcore/system-banner", "./assets/system-banner.pimcore.ts")
-    .addStyleEntry("./src/Resources/public/css/pimcore/system-banner", "./assets/scss/system-banner.scss")
+    .addEntry("./public/js/system-banner", "./assets/classic-ui/system-banner.standalone.ts")
+    .addEntry("./public/js/pimcore/system-banner", "./assets/classic-ui/system-banner.pimcore.ts")
+    .addStyleEntry("./public/css/pimcore/system-banner", "./assets/classic-ui/scss/system-banner.scss")
 ;
 
 module.exports = Encore.getWebpackConfig();
