@@ -19,6 +19,7 @@
     },
 
     "include": [
+        "./assets/shared/**/*",
         "./assets/classic-ui/js/**/*",
         "./@mf-types/*"
     ],

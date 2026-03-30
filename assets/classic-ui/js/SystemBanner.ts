@@ -1,32 +1,14 @@
-import * as routes from '../routes.json';
-
-type EnvironmentRequestResponseData = { environment: string, text: string, color?: string };
-
-enum ENVIRONMENT {
-    DEV = 'dev',
-    TEST = 'test',
-    STAGE = 'stage',
-    PROD = 'prod'
-}
-
-const environmentAliases: { [key: string]: Array<string> } = {
-    [ENVIRONMENT.DEV]: ['dev', 'development'],
-    [ENVIRONMENT.TEST]: ['qa', 'qs', 'test', 'testing'],
-    [ENVIRONMENT.STAGE]: ['stage', 'staging'],
-    [ENVIRONMENT.PROD]: ['live', 'prod', 'production']
-};
+import {
+    type EnvironmentRequestResponseData,
+    fetchEnvironment,
+    getSystemType
+} from '../../shared/system-banner-config';
 
 export class SystemBanner {
     static show(environment: string = ''): void {
         if (environment.trim() === '') {
-            fetch(routes["get-environment"])
-                .then((response) => {
-                    if (response.status !== 200) {
-                        throw new Error("Not 200 response");
-                    }
-                    return response.json();
-                })
-                .then((responseData: EnvironmentRequestResponseData) => {
+            fetchEnvironment()
+                .then((responseData) => {
                     this.addCss();
                     this.addBanner(responseData);
                 })
@@ -49,22 +31,11 @@ export class SystemBanner {
         if (environmentData.color) {
             bannerContainer.classList.add('system-banner--' + environmentData.color);
         } else {
-            bannerContainer.classList.add('system-banner--' + this.getSystemType(environmentData.environment));
+            bannerContainer.classList.add('system-banner--' + getSystemType(environmentData.environment));
         }
         bannerContainer.append(banner);
 
         document.body.append(bannerContainer);
-    }
-
-    private static getSystemType(environment: string): string {
-        let systemType = ENVIRONMENT.PROD as string;
-        Object.keys(environmentAliases).forEach((environmentAlias) => {
-            if (environmentAliases[environmentAlias].includes(environment)) {
-                systemType = environmentAlias;
-            }
-        });
-
-        return systemType;
     }
 
     private static addCss(): void {

@@ -17,7 +17,7 @@ class SystemBannerController extends FrontendController
         'blue',
     ];
 
-    #[Route("/admin/pimcore-system-banner-config", methods: ["GET"])]
+    #[Route("/admin/pimcore-system-banner", methods: ["GET"])]
     public function systemBanner(): JsonResponse
     {
         $environmentName = Config::getEnvironment();

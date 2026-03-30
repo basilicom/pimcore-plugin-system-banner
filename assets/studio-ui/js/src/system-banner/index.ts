@@ -1,11 +1,11 @@
 import { type IAbstractPlugin } from '@pimcore/studio-ui-bundle'
-import { LeftSidebarExtension } from './modules/left-sidebar-extension'
+import { RightSidebarExtension } from './modules/right-sidebar-extension'
 
 export const SystemBannerPlugin: IAbstractPlugin = {
     name: 'SystemBannerPlugin',
 
     onStartup ({ moduleSystem }) {
-        moduleSystem.registerModule(LeftSidebarExtension);
+        moduleSystem.registerModule(RightSidebarExtension);
         console.log('Hello from System BannerPlugin.');
     }
 }

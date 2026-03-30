@@ -1,17 +1,17 @@
 import { type AbstractModule, container } from '@pimcore/studio-ui-bundle'
 import { serviceIds } from '@pimcore/studio-ui-bundle/app'
 import { componentConfig, type ComponentRegistry } from '@pimcore/studio-ui-bundle/modules/app'
-import { ExampleButton } from '../components/example-button'
+import { SystemBannerInfo } from '../components/system-banner-info'
 
-export const LeftSidebarExtension: AbstractModule = {
+export const RightSidebarExtension: AbstractModule = {
     onInit: (): void => {
         const componentRegistry = container.get<ComponentRegistry>(serviceIds['App/ComponentRegistry/ComponentRegistry'])
 
         componentRegistry.registerToSlot(
-            componentConfig.leftSidebar.slot.name,
+            componentConfig.rightSidebar.slot.name,
             {
-                name: 'exampleButton',
-                component: ExampleButton,
+                name: 'systemBannerInfo',
+                component: SystemBannerInfo,
                 priority: 101
             }
         )

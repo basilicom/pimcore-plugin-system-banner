@@ -12,3 +12,4 @@ composer.lock
 
 # built assets
 /public/
+*.d.ts
