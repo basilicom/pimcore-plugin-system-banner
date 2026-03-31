@@ -22,7 +22,7 @@
     "globalName": "pimcore_plugin_system_banner_bundle",
     "pluginVersion": "2.3.0",
     "prefetchInterface": false,
-    "publicPath": "/bundles/pimcorepluginsystembanner/studio/build/29c7d89d-66bb-4927-a319-aa1049a15d22/"
+    "publicPath": "/bundles/pimcorepluginsystembanner/studio/build/462d554d-2a89-4a3b-ba97-d5accef442da/"
   },
   "shared": [
     {
@@ -74,7 +74,7 @@
       "assets": {
         "js": {
           "sync": [
-            "static/js/async/__federation_expose_default_export.2b7051c8.js"
+            "static/js/async/__federation_expose_default_export.2090cf89.js"
           ],
           "async": []
         },
