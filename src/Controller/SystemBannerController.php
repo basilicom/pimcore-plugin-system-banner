@@ -20,6 +20,14 @@ class SystemBannerController extends FrontendController
         'testing' => 'purple'
     ];
 
+    private const array LEGACY_COLORS = [
+        'green',
+        'yellow',
+        'red',
+        'purple',
+        'blue'
+    ];
+
     #[Route("/admin/pimcore-system-banner", methods: ["GET"])]
     public function systemBanner(): JsonResponse
     {
@@ -33,8 +41,8 @@ class SystemBannerController extends FrontendController
         if (empty($_ENV['SYSTEM_BANNER_COLOR']) === false) {
             $input = trim($_ENV['SYSTEM_BANNER_COLOR']);
 
-            // Regex for hex codes (3 or 6 chars)
-            if (preg_match('/^#([A-Fa-f0-9]{3}){1,2}$/', $input)) {
+            // test for legacy colors strings or regex for hex codes (3 or 6 chars)
+            if (in_array($input, self::LEGACY_COLORS) or preg_match('/^#([A-Fa-f0-9]{3}){1,2}$/', $input)) {
                 $color = $input;
             }
         }
@@ -42,8 +50,8 @@ class SystemBannerController extends FrontendController
         return new JsonResponse(
             [
                 'environment' => Config::getEnvironment(),
-                'text'        => $environmentName,
-                'color'       => $color,
+                'text' => $environmentName,
+                'color' => $color,
             ],
             200
         );

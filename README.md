@@ -9,23 +9,23 @@ This plugin will show a banner on the top right with the environment name.
 
 ### Classic UI
 
-![Environment dev](docs/environment-dev.jpg)
+![Environment dev](docs/classic-ui.png)
 
 ### Studio UI
 
-![Studio UI - Environment dev](docs/studio-env.png)
+![Studio UI - Environment dev](docs/studio-ui.png)
 
 The environment is read from the `APP_ENV` variable.
 
 ## Version information
 
-| Bundle Version | PHP  | Pimcore | Studio |
-|:--------------:|:----:|:-------:|:------:|
-|    &lt; 2.0    | ^7.3 |  ^6.0   |        |
-|   &gt;= 2.0    | ^8.0 |  ^10.0  |        |
-|   &gt;= 3.0    | ^8.1 |  ^11.0  |        |
-|   &gt;= 4.0    | ^8.3 |  ^12.0  |        |
-|   &gt;= 5.0    | ^8.3 |  ^12.0  |   x    |
+| Bundle Version | PHP  | Pimcore | Studio  |
+|:--------------:|:----:|:-------:|:-------:|
+|    &lt; 2.0    | ^7.3 |  ^6.0   |         |
+|   &gt;= 2.0    | ^8.0 |  ^10.0  |         |
+|   &gt;= 3.0    | ^8.1 |  ^11.0  |         |
+|   &gt;= 4.0    | ^8.3 |  ^12.0  |         |
+|   &gt;= 5.0    | ^8.3 |  ^12.0  | &check; |
 
 ## Installation
 
