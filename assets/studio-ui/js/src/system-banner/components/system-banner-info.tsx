@@ -22,11 +22,11 @@ export const SystemBannerInfo = (): React.JSX.Element => {
             paddingInline: 12,
         }}>
             <div style={{
-                color: 'white',
                 writingMode: 'vertical-rl',
                 textTransform: 'uppercase',
                 fontSize: 16,
-                lineHeight: 1
+                lineHeight: 1,
+                color: 'hsl(from var(' + bgColor + ') h s calc(clamp(0, (65 - l) * 1000, 100) * 1%))'
             }}>
                 {label}
             </div>

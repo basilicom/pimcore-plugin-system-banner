@@ -28,7 +28,7 @@ export class SystemBanner {
 
         const bannerContainer = document.createElement('div');
         bannerContainer.classList.add('system-banner');
-        document.body.style.setProperty('--system-banner-background', '' + environmentData.color);
+        bannerContainer.style.setProperty('--system-banner-background', '' + environmentData.color);
         bannerContainer.append(banner);
         document.body.append(bannerContainer);
     }
