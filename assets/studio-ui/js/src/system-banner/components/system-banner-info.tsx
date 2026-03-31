@@ -26,7 +26,12 @@ export const SystemBannerInfo = (): React.JSX.Element => {
                 textTransform: 'uppercase',
                 fontSize: 16,
                 lineHeight: 1,
-                color: `hsl(from ${bgColor} h s calc(clamp(0, (65 - l) * 1000, 100) * 1%))`
+                /*
+                    Define the text color relative to the background color, works with "purple", #800080 or rgb()
+                    - extract HSL from background color
+                    - calculate the lightness (L), the threshold is 50%, works in most cases
+                */
+                color: `hsl(from ${bgColor} h s calc(clamp(0, (50 - l) * 1000, 100) * 1%))`
             }}>
                 {label}
             </div>
