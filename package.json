@@ -65,7 +65,7 @@
         "uuid": "^10.0.0"
     },
     "dependencies": {
-        "@pimcore/studio-ui-bundle": "^0.15.17",
+        "@pimcore/studio-ui-bundle": "^2026.2.9",
         "@rsbuild/plugin-sass": "^1.5.1",
         "react": "18.3.x",
         "react-dom": "18.3.x"

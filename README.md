@@ -19,13 +19,20 @@ The environment is read from the `APP_ENV` variable.
 
 ## Version information
 
-| Bundle Version | PHP  | Pimcore | Studio  |
-|:--------------:|:----:|:-------:|:-------:|
-|    &lt; 2.0    | ^7.3 |  ^6.0   |         |
-|   &gt;= 2.0    | ^8.0 |  ^10.0  |         |
-|   &gt;= 3.0    | ^8.1 |  ^11.0  |         |
-|   &gt;= 4.0    | ^8.3 |  ^12.0  |         |
-|   &gt;= 5.0    | ^8.3 |  ^12.0  | &check; |
+| Bundle Version | PHP  |        Pimcore         | Classic UI | Studio UI |
+|:--------------:|:----:|:----------------------:|:----------:|:---------:|
+|    &lt; 2.0    | ^7.3 |          ^6.0          |  &check;   |           |
+|   &gt;= 2.0    | ^8.0 |         ^10.0          |  &check;   |           |
+|   &gt;= 3.0    | ^8.1 |         ^11.0          |  &check;   |           |
+|   &gt;= 4.0    | ^8.3 |         ^12.0          |  &check;   |           |
+|   &gt;= 5.0    | ^8.1 | ^11.0, ^12.0, ^2026.1  |  &check;   |  &check;  |
+
+Both UIs are detected at runtime, no configuration needed:
+
+* Classic UI assets are registered through the Pimcore bundle manager events, so they only load where
+  `pimcore/admin-ui-classic-bundle` is present. Pimcore 2026 dropped the classic UI.
+* The Studio UI plugin is only registered when `pimcore/studio-ui-bundle` is installed
+  (`^2025.4` on Pimcore 12, `^2026.1` on Pimcore 2026). It is built against Studio 2026.2.
 
 ## Installation
 

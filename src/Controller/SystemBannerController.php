@@ -5,11 +5,11 @@ namespace Basilicom\PimcorePluginSystemBanner\Controller;
 use Pimcore\Config;
 use Pimcore\Controller\FrontendController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class SystemBannerController extends FrontendController
 {
-    private const array COLORS = [
+    private const COLORS = [
         'prod' => 'red',
         'production' => 'red',
         'stage' => 'yellow',
@@ -20,7 +20,7 @@ class SystemBannerController extends FrontendController
         'testing' => 'purple'
     ];
 
-    private const array LEGACY_COLORS = [
+    private const LEGACY_COLORS = [
         'green',
         'yellow',
         'red',
@@ -31,8 +31,9 @@ class SystemBannerController extends FrontendController
     #[Route("/admin/pimcore-system-banner", methods: ["GET"])]
     public function systemBanner(): JsonResponse
     {
-        $environmentName = Config::getEnvironment();
-        $color = self::COLORS[Config::getEnvironment()];
+        $environment = Config::getEnvironment();
+        $environmentName = $environment;
+        $color = self::COLORS[$environment] ?? null;
 
         if (empty($_ENV['SYSTEM_BANNER_TEXT']) === false) {
             $environmentName = trim($_ENV['SYSTEM_BANNER_TEXT']);
@@ -49,7 +50,7 @@ class SystemBannerController extends FrontendController
 
         return new JsonResponse(
             [
-                'environment' => Config::getEnvironment(),
+                'environment' => $environment,
                 'text' => $environmentName,
                 'color' => $color,
             ],
