@@ -2,13 +2,13 @@
 
 This plugin will show a banner on the top right with the environment name, coloured by `APP_ENV`:
 
-| `APP_ENV`              | Colour      |
-|------------------------|-------------|
-| `dev`, `development`   | 🟢 green    |
-| `test`, `testing`      | 🟣 purple   |
-| `stage`, `staging`     | 🟡 yellow   |
-| `prod`, `production`   | 🔴 red      |
-| anything else          | ⚪ none     |
+| `APP_ENV`              | Colour |
+|------------------------|:------:|
+| `dev`, `development`   |   🟢   |
+| `test`, `testing`      |   🟣   |
+| `stage`, `staging`     |   🟡   |
+| `prod`, `production`   |   🔴   |
+| anything else          |   ⚪   |
 
 ### Classic UI
 
@@ -78,6 +78,5 @@ To customize the colour, you can use the following variable:
 ```
 SYSTEM_BANNER_COLOR="#ff0000"
 ```
-It accepts a three or six digit hex value, or one of the named colours
-🟢 `green` · 🟡 `yellow` · 🔴 `red` · 🟣 `purple` · 🔵 `blue`.
+It accepts a three or six digit hex value, or one of 🟢 🟡 🔴 🟣 🔵.
 Anything else is ignored and the `APP_ENV` colour from the table above is used.
