@@ -20,9 +20,8 @@
       "api": "@mf-types.d.ts"
     },
     "globalName": "pimcore_plugin_system_banner_bundle",
-    "pluginVersion": "2.3.0",
-    "prefetchInterface": false,
-    "publicPath": "/bundles/pimcorepluginsystembanner/studio/build/ac9417af-05cb-48b1-ace8-4a90418e7624/"
+    "pluginVersion": "2.9.0",
+    "publicPath": "/bundles/pimcorepluginsystembanner/studio/build/4515efd1-30d3-4652-b9bc-4519d110fa7f/"
   },
   "shared": [
     {
@@ -37,7 +36,7 @@
         "js": {
           "async": [],
           "sync": [
-            "static/js/237.536df549.js",
+            "static/js/237.db3f589c.js",
             "static/js/remoteEntry.js"
           ]
         },
@@ -97,7 +96,7 @@
       "assets": {
         "js": {
           "sync": [
-            "static/js/async/__federation_expose_default_export.af32aed2.js"
+            "static/js/async/__federation_expose_default_export.cd11bbe9.js"
           ],
           "async": []
         },
