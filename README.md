@@ -1,11 +1,14 @@
 # Pimcore Plugin System Banner
 
-This plugin will show a banner on the top right with the environment name.
+This plugin will show a banner on the top right with the environment name, coloured by `APP_ENV`:
 
-* development environments = green
-* test environments = purple
-* stage environments = yellow
-* prod environments = red
+| `APP_ENV`              | Colour      |
+|------------------------|-------------|
+| `dev`, `development`   | 🟢 green    |
+| `test`, `testing`      | 🟣 purple   |
+| `stage`, `staging`     | 🟡 yellow   |
+| `prod`, `production`   | 🔴 red      |
+| anything else          | ⚪ none     |
 
 ### Classic UI
 
@@ -71,20 +74,10 @@ You can customize the display of the name in the .env file (or .env.local); by d
 ```
 SYSTEM_BANNER_TEXT="My env name"
 ```
-To customize the color (only three or six digits hex values are allowed, e.g., #000000), you can use the following variable:
+To customize the colour, you can use the following variable:
 ```
 SYSTEM_BANNER_COLOR="#ff0000"
 ```
-By default, the plugin will set the color based on `APP_ENV`:
-```
-[
-    'prod' => 'red',
-    'production' => 'red',
-    'stage' => 'yellow',
-    'staging' => 'yellow',
-    'dev' => 'green',
-    'development' => 'green',
-    'test' => 'purple',
-    'testing' => 'purple'
-];
-```
+It accepts a three or six digit hex value, or one of the named colours
+🟢 `green` · 🟡 `yellow` · 🔴 `red` · 🟣 `purple` · 🔵 `blue`.
+Anything else is ignored and the `APP_ENV` colour from the table above is used.
