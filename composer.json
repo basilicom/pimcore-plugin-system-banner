@@ -2,7 +2,7 @@
     "name": "basilicom/pimcore-plugin-system-banner",
     "description": "Shows a banner of the pimcore environment, to indicate if you are on prod or dev or else.",
     "type": "pimcore-bundle",
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [
         {
             "name": "Kerstin Gerull",
