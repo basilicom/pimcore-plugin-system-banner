@@ -1,0 +1,24 @@
+# (c) Basilicom GmbH
+#
+# By purchasing and using the extension, the customer accepts Basilicom's End User License Agreement (EULA)
+# in its current version. For the full license information, please view the license.txt file that was
+# distributed with this source code.
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        # automatically injects dependencies in your services
+        autowire: true
+        # automatically registers your services as commands, event subscribers, etc.
+        autoconfigure: true
+        # this means you cannot fetch services directly from the container via $container->get()
+        # if you need to do this, you can override this setting on individual services
+        public: false
+
+    # auto-register all controllers as services
+    Basilicom\PimcorePluginSystemBanner\Controller\:
+        resource: '../src/Controller'
+        public: true
+        tags: [ 'controller.service_arguments' ]
+
+    Basilicom\PimcorePluginSystemBanner\EventListener\AdminClassicAssetsListener: ~

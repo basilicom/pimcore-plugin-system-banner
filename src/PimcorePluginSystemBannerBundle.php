@@ -1,29 +1,24 @@
 <?php
 
+/*
+ * (c) Basilicom GmbH
+ *
+ * By purchasing and using the extension, the customer accepts Basilicom's End User License Agreement (EULA)
+ * in its current version. For the full license information, please view the license.txt file that was
+ * distributed with this source code.
+ */
+
 namespace Basilicom\PimcorePluginSystemBanner;
 
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
-use Pimcore\Extension\Bundle\PimcoreBundleAdminClassicInterface;
+use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 
-class PimcorePluginSystemBannerBundle extends AbstractPimcoreBundle implements PimcoreBundleAdminClassicInterface
+class PimcorePluginSystemBannerBundle extends AbstractPimcoreBundle
 {
-    public function getJsPaths(): array
-    {
-        return ['/bundles/pimcorepluginsystembanner/js/pimcore/system-banner.js'];
-    }
+    use PackageVersionTrait;
 
-    public function getCssPaths(): array
+    public function getPath(): string
     {
-        return ['/bundles/pimcorepluginsystembanner/css/pimcore/system-banner.css'];
-    }
-
-    public function getEditmodeJsPaths(): array
-    {
-        return [];
-    }
-
-    public function getEditmodeCssPaths(): array
-    {
-        return [];
+        return \dirname(__DIR__);
     }
 }

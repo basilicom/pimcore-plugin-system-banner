@@ -6,12 +6,10 @@
  * distributed with this source code.
  */
 
-module.exports = {
-  plugins: {
-    // include whatever plugins you want
-    // but make sure you install these via yarn or npm!
+import {SystemBanner} from './js/SystemBanner';
 
-    // add browserslist config to package.json (see below)
-    autoprefixer: {}
-  }
-}
+declare const pimcore: any;
+
+document.addEventListener(pimcore.events.pimcoreReady, (e) => {
+    SystemBanner.show();
+});
