@@ -1,0 +1,79 @@
+Basilicom EULA Pimcore Extension Standalone
+(1st July 2026)
+
+Preamble
+(1) This Agreement governs the legal relationship between Basilicom GmbH and the Licensee with respect to the provision of the Basilicom Pimcore Extension (hereinafter “Extension”). The Extension is obtained via the “Pimcore Store” distribution platform. By obtaining the Extension, the Licensee accepts this Agreement.
+(2) The contractual relationship with Pimcore GmbH, in particular the commercial processing as well as the overarching licensing framework conditions, is subject to the provisions of the Pimcore Extension Subscription Agreement (PESA). This EULA additionally governs the specific terms of use of the Software in relation to Basilicom.
+
+§ 1 Definitions
+* Extension: The software module provided as a Composer package or Pimcore bundle. The owed condition and the scope of functionality of the Extension result from the product page in the Pimcore Store and the associated technical documentation.
+* Pimcore Store: The digital distribution platform operated by Pimcore GmbH.
+* PESA: The Pimcore Extension Subscription Agreement governing the commercial processing.
+* PCL: The valid commercial Pimcore license required as a prerequisite (Editions: Professional, Enterprise or PaaS).
+* Hosted Service: The provision, whether for consideration or free of charge, of the functions of the Extension or of a version derived from it to third parties via a public or non-public network, insofar as such third parties are not themselves Licensees within the meaning of this Agreement and do not hold their own valid PCL.
+
+§ 2 Subject Matter of the Contract
+1. Performance: Basilicom grants the right to install and configure the Extension within licensed Pimcore environments; with the specific scope of functionality and the stated quantity structures (limits). The installation and configuration fall within the exclusive sphere of the Licensee.
+2. Provision: The handover takes place in digital form after authorization by the Pimcore Store; delivery of physical data carriers is excluded.
+3. Technical Interdependence: The intended functionality of the Extension presupposes the availability and proper licensing of the required technical counterparts. The required counterparts comprise in particular the versions of the Pimcore Core, the PHP runtime environment as well as, where applicable, named third-party systems specified on the product page or in the documentation. The Licensee is solely responsible for their availability and proper licensing.
+
+§ 3 Conclusion of Contract
+1. Mode of Contracting: The acquisition takes place via the Pimcore Store (cf. PESA). Upon acquisition by way of the click-wrap procedure, the direct license relationship with Basilicom is established and consent to this EULA is declared.
+2. Logging: Basilicom archives the time and the IP address of the consent and transmits to the Licensee a confirmation in text form.
+
+§ 4 Prerequisites
+1. License Coupling: The Licensee is obliged to maintain a valid PCL throughout the entire term of the contract. Use on the basis of the Pimcore Open Core License (POCL) is not permitted.
+2. Lapse: Upon termination of the PCL, the authorization to use the Extension automatically ceases.
+
+§ 5 Rights of Use
+1. Scope: Basilicom grants a simple, non-transferable and non-exclusive right of use for the Licensee’s own business purposes.
+2. Group Privilege: Use by affiliated companies within the meaning of § 15 AktG (German Stock Corporation Act), provided that these hold their own PCL and the agreed limits are observed, is subject to an explicit reservation of approval by Basilicom. In this context, the Licensee guarantees to Basilicom in this case the compliance with all obligations under this Agreement by the affiliated company and is liable for their conduct as for its own conduct.
+3. Prohibition of Use: The provision to third parties, whether for consideration or free of charge (in particular rental), white-labeling as well as rebranding are expressly prohibited.
+
+§ 6 Modification and Restrictions
+1. Right of Modification: The Licensee is prohibited from altering, extending or otherwise modifying the Extension. The Licensee’s statutory rights under § 69d and § 69e UrhG (German Copyright Act) remain unaffected. Unauthorized modifications lead to the lapse of the warranty pursuant to § 10.2.
+2. Reservation of Prohibition: Furthermore prohibited are (a) decompiling, disassembling or otherwise reverse engineering the Extension into human-readable source code; (b) providing the Extension or its functions as a Hosted Service (as defined in § 1) to third parties; (c) the redistribution of the code or the documentation to third parties as well as the use of the Extension for the development of competitive solutions; (d) any removal or obscuring of copyright notices or origin references is prohibited.
+
+
+§ 7 Suggestions and Contributions
+If the Licensee transmits to Basilicom error reports, improvement suggestions, code, patches or other contributions to the Extension (“Contributions”), the Licensee grants Basilicom a non-exclusive, worldwide, temporally and spatially unlimited, free of charge, transferable and sublicensable right of use to use the Contribution in any form — including modified — to reproduce it, to incorporate it into the Extension or other products and to exploit it commercially. The Licensee warrants that it is entitled to grant these rights and that the Contribution does not infringe any third-party rights. There is no obligation to use or to remunerate.
+
+
+§ 8 Updates and Support
+1. Product Support: During the term, Basilicom provides exclusively product-related support (“Product Support”). This comprises the maintenance of the Extension, the correction of program errors in the standard code as well as the adaptation to new minor versions of the Pimcore Core in accordance with the Support Matrix. The provision of these services takes place through regular updates via the Pimcore Store.
+2. Exclusion of Individual Support Services: Product Support expressly does not include individual services for the Licensee. In particular, the following are not owed:
+* the installation, configuration or integration of the Extension;
+* error diagnosis and correction in the Licensee’s individual system environment (e.g. conflicts with third-party bundles);
+* general application consulting or training.
+
+3. Support Matrix: Basilicom provides Product Support and warranty exclusively for the Extension, provided that it is operated in a supported environment.
+* Compatibility: Compatibility is limited to the system/software editions and versions explicitly stated on the product page of the Pimcore Store, the associated technical documentation and the Release Notes.
+* Extension Version: Supported are the respective current minor version (N) as well as the immediately preceding minor version (N-1) within the current major version.
+* Runtime Environment: The Extension is supported exclusively for the PHP and database versions specified in the documentation.
+
+4. Transition Period for Major Releases: Upon the release of a new major version (breaking changes) of the Extension, the following special provisions apply:
+* Parallel Support: Basilicom will continue to support the previous major version for a period of twelve (12) months from the release of the new major version in accordance with the Support Matrix.
+* Announcement: Basilicom will inform the Licensee of the upcoming change and the end of parallel support in good time in text form.
+* Obligation to Install: After expiry of this 12-month transition period, the claim to Product Support and warranty for the old major version ceases. From that point on, the new major version is deemed the contractually compliant state.
+
+§ 9 Remuneration
+1. Mode: The remuneration is effected as an annual subscription via the Pimcore Store. Pricing is governed by the information in the Store.
+2. Due Date: The fees are to be paid annually in advance in accordance with the payment terms of the PESA.
+
+§ 10 Warranty
+1. Regime: For the duration of the provision for use, the warranty rules of tenancy law apply accordingly.
+2. Exclusion of Warranty: The warranty lapses in the event of use in non-compatible environments, unauthorized modifications or breach of the update obligation. The warranty lapses in particular in the case of defects that are causally attributable to the unavailability or defective licensing of the technical counterparts referred to in § 2.3.
+
+§ 11 Liability
+1. Limitation of Liability: Basilicom is liable without limitation in the event of intent or gross negligence, for injury to life, body or health, in accordance with the provisions of the Product Liability Act (Produkthaftungsgesetz) as well as to the extent of an expressly assumed guarantee. In the case of a slightly negligent breach of an obligation that is essential for the achievement of the purpose of the contract (cardinal obligation), Basilicom’s liability is limited to the damage foreseeable and typical according to the nature of the business, but at most to three times the list price owed for the Extension in the respective contract year. Any further liability for simple negligence is excluded.
+2. Preclusion: Claims for damages that are not based on intent or gross negligence become time-barred within two years from the statutory commencement of the limitation period.
+
+§ 12 Term and Termination
+1. Term: The minimum term is 12 months with automatic renewal by a further 12 months in each case.
+2. Ordinary Termination: This is possible for both parties with a notice period of 3 months to the end of the respective contract term.
+3. Form: The declaration of termination must mandatorily be made via the account management system of the Pimcore Store.
+
+§ 13 Final Provisions
+1. Applicable Law: The law of the Federal Republic of Germany applies, excluding the UN Convention on Contracts for the International Sale of Goods (CISG).
+2. Place of Jurisdiction: The exclusive place of jurisdiction is Berlin.
+3. Language Version: The German version is authoritative; translations serve information purposes only.
