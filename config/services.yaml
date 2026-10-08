@@ -1,3 +1,6 @@
+parameters:
+    env(SYSTEM_BANNER_LOGIN_SCREEN): 'false'
+
 services:
     # default configuration for services in *this* file
     _defaults:

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchEnvironment, getSystemType, type EnvironmentRequestResponseData } from '../../../../../shared/system-banner-config'
+import { textColorFor } from '../utils/text-color'
 
 export const SystemBannerInfo = (): React.JSX.Element => {
     const [envData, setEnvData] = useState<EnvironmentRequestResponseData | null>(null)
@@ -26,12 +27,7 @@ export const SystemBannerInfo = (): React.JSX.Element => {
                 textTransform: 'uppercase',
                 fontSize: 16,
                 lineHeight: 1,
-                /*
-                    Define the text color relative to the background color, works with "purple", #800080 or rgb()
-                    - extract HSL from background color
-                    - calculate the lightness (L), the threshold is 50%, works in most cases
-                */
-                color: `hsl(from ${bgColor} h s calc(clamp(0, (50 - l) * 1000, 100) * 1%))`
+                color: textColorFor(bgColor)
             }}>
                 {label}
             </div>
