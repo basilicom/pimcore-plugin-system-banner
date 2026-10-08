@@ -7,7 +7,7 @@ use Pimcore\Event\BundleManagerEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Registers the classic UI assets. Pimcore >= 2026 has no classic UI and never dispatches these events.
+ * Registers the classic UI assets. Only loaded when the classic UI is installed.
  */
 class AdminClassicAssetsListener implements EventSubscriberInterface
 {

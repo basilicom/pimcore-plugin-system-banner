@@ -7,7 +7,7 @@
         window.alternativePluginExportPaths = {}
       }
 
-      window.pluginRemotes.pimcore_plugin_system_banner_bundle = "/bundles/pimcorepluginsystembanner/studio/build/4515efd1-30d3-4652-b9bc-4519d110fa7f/static/js/remoteEntry.js"
+      window.pluginRemotes.pimcore_plugin_system_banner_bundle = "/bundles/pimcorepluginsystembanner/studio/build/4d81070e-894b-4f14-993b-17ce79adf5dc/static/js/remoteEntry.js"
 
       
     
