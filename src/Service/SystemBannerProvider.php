@@ -3,6 +3,7 @@
 namespace Basilicom\PimcorePluginSystemBanner\Service;
 
 use Pimcore\Config;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 class SystemBannerProvider
 {
@@ -25,6 +26,14 @@ class SystemBannerProvider
         'blue'
     ];
 
+    public function __construct(
+        #[Autowire('%env(default::SYSTEM_BANNER_TEXT)%')]
+        private readonly ?string $text = null,
+        #[Autowire('%env(default::SYSTEM_BANNER_COLOR)%')]
+        private readonly ?string $color = null,
+    ) {
+    }
+
     public function getEnvironment(): string
     {
         return Config::getEnvironment();
@@ -32,22 +41,18 @@ class SystemBannerProvider
 
     public function getText(): string
     {
-        if (empty($_ENV['SYSTEM_BANNER_TEXT']) === false) {
-            return trim($_ENV['SYSTEM_BANNER_TEXT']);
-        }
+        $text = trim($this->text ?? '');
 
-        return $this->getEnvironment();
+        return $text !== '' ? $text : $this->getEnvironment();
     }
 
     public function getColor(): ?string
     {
-        if (empty($_ENV['SYSTEM_BANNER_COLOR']) === false) {
-            $input = trim($_ENV['SYSTEM_BANNER_COLOR']);
+        $color = trim($this->color ?? '');
 
-            // test for legacy colors strings or regex for hex codes (3 or 6 chars)
-            if (in_array($input, self::LEGACY_COLORS) or preg_match('/^#([A-Fa-f0-9]{3}){1,2}$/', $input)) {
-                return $input;
-            }
+        // test for legacy colors strings or regex for hex codes (3 or 6 chars)
+        if (in_array($color, self::LEGACY_COLORS, true) or preg_match('/^#([A-Fa-f0-9]{3}){1,2}$/', $color)) {
+            return $color;
         }
 
         return self::COLORS[$this->getEnvironment()] ?? null;

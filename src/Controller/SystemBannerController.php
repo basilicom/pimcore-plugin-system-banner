@@ -17,8 +17,7 @@ class SystemBannerController extends FrontendController
                 'environment' => $systemBannerProvider->getEnvironment(),
                 'text' => $systemBannerProvider->getText(),
                 'color' => $systemBannerProvider->getColor(),
-            ],
-            200
+            ]
         );
     }
 }

@@ -7,4 +7,6 @@ services:
         autoconfigure: true
         public: false
 
+    Basilicom\PimcorePluginSystemBanner\EventListener\AdminClassicAssetsListener: ~
+
     Basilicom\PimcorePluginSystemBanner\EventListener\LoginScreenBannerListener: ~
