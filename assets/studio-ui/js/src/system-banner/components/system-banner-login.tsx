@@ -1,6 +1,6 @@
 import React from 'react'
 import { appConfig } from '@pimcore/studio-ui-bundle/app'
-import { textColorFor } from '../utils/text-color'
+import { SystemBannerLabel } from './system-banner-label'
 
 type LoginBanner = { text: string, color: string | null }
 
@@ -12,20 +12,10 @@ export const SystemBannerLogin = (): React.JSX.Element | null => {
         return null
     }
 
-    const bgColor = loginBanner.color ?? '#3e3e3e'
-
+    // same spot as the right sidebar entry after login
     return (
-        <div style={{
-            backgroundColor: bgColor,
-            borderRadius: 6,
-            marginTop: 16,
-            padding: 8,
-            textAlign: 'center',
-            textTransform: 'uppercase',
-            fontWeight: 'bold',
-            color: textColorFor(bgColor)
-        }}>
-            {loginBanner.text}
+        <div style={{ position: 'fixed', top: 0, right: 0, zIndex: 1000 }}>
+            <SystemBannerLabel text={loginBanner.text} color={loginBanner.color ?? '#3e3e3e'} />
         </div>
     )
 }
