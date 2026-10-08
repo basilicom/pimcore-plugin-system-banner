@@ -80,3 +80,15 @@ SYSTEM_BANNER_COLOR="#ff0000"
 ```
 It accepts a three or six digit hex value, or one of 🟢 🟡 🔴 🟣 🔵.
 Anything else is ignored and the `APP_ENV` colour from the table above is used.
+
+## Show the banner on the login screen
+By default the banner is only shown after login. To show it on the classic UI login screen as well, set:
+```
+SYSTEM_BANNER_LOGIN_SCREEN=true
+```
+The banner is rendered server-side into the login page (via the `pimcore.admin.login.beforeRender` event),
+so it uses the same text and colour as above. The Studio UI login screen is not covered.
+
+> [!CAUTION]
+> The login page is public: with this option on, **anyone** who opens it sees the environment name (and your `SYSTEM_BANNER_TEXT`).
+> Meant for local and internal environments — do not enable it on publicly reachable systems such as production.

@@ -1,0 +1,10 @@
+parameters:
+    env(SYSTEM_BANNER_LOGIN_SCREEN): 'false'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Basilicom\PimcorePluginSystemBanner\EventListener\LoginScreenBannerListener: ~

@@ -15,4 +15,6 @@ services:
         public: true
         tags: [ 'controller.service_arguments' ]
 
+    Basilicom\PimcorePluginSystemBanner\Service\SystemBannerProvider: ~
+
     Basilicom\PimcorePluginSystemBanner\EventListener\AdminClassicAssetsListener: ~
