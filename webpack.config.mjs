@@ -1,6 +1,6 @@
 // @see https://github.com/symfony/webpack-encore/blob/master/index.js for full API
-const Encore = require("@symfony/webpack-encore");
-const path = require("path");
+import Encore from '@symfony/webpack-encore';
+import path from 'path';
 
 Encore
     .disableSingleRuntimeChunk() // enabling this will create a separate runtime.js
@@ -14,7 +14,7 @@ Encore
     .enablePostCssLoader((options) => {
         options.postcssOptions = {
             // the directory where the postcss.config.js file is stored
-            config: path.resolve(__dirname, '', 'postcss.config.js'),
+            config: path.resolve(import.meta.dirname, '', 'postcss.config.js'),
         };
     })
 
@@ -28,4 +28,4 @@ Encore
     .addStyleEntry("./public/css/pimcore/system-banner", "./assets/classic-ui/scss/system-banner.scss")
 ;
 
-module.exports = Encore.getWebpackConfig();
+export default Encore.getWebpackConfig();

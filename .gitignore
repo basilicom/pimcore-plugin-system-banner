@@ -1,6 +1,9 @@
 # PHPStorm
 .idea
 
+# yarn
+.yarn
+
 # webpack
 vendor
 node_modules

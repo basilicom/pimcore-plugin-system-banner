@@ -4,7 +4,6 @@
         "target": "es2017",
         "moduleResolution": "bundler",
         "types": ["@types/webpack-env" ],
-        "baseUrl": "./js/",
         "strictNullChecks": true,
         "jsx": "react",
         "esModuleInterop": true,
