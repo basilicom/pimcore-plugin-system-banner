@@ -14,10 +14,11 @@ export const environmentAliases: { [key: string]: Array<string> } = {
     [ENVIRONMENT.PROD]: ['live', 'prod', 'production']
 };
 
+// Classic UI endpoint (Classic firewall); the Studio UI passes its own API route
 const ENVIRONMENT_URL = '/admin/pimcore-system-banner';
 
-export async function fetchEnvironment(): Promise<EnvironmentRequestResponseData> {
-    const response = await fetch(ENVIRONMENT_URL);
+export async function fetchEnvironment(url: string = ENVIRONMENT_URL): Promise<EnvironmentRequestResponseData> {
+    const response = await fetch(url);
     if (response.status !== 200) {
         throw new Error('Not 200 response');
     }

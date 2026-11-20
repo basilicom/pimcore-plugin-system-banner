@@ -19,3 +19,6 @@ services:
         tags: [ 'controller.service_arguments' ]
 
     Basilicom\PimcorePluginSystemBanner\Service\SystemBannerProvider: ~
+
+    Basilicom\PimcorePluginSystemBanner\Routing\StudioRouteLoader:
+        tags: [ 'routing.loader' ]

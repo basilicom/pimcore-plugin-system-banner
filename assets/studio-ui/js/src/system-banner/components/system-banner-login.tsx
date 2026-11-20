@@ -1,13 +1,10 @@
 import React from 'react'
-import { appConfig } from '@pimcore/studio-ui-bundle/app'
 import { SystemBannerLabel } from './system-banner-label'
-
-type LoginBanner = { text: string, color: string | null }
-
-// filled by SystemBannerAppConfigProvider only when SYSTEM_BANNER_LOGIN_SCREEN is on
-const loginBanner = (appConfig as unknown as { systemBanner?: LoginBanner }).systemBanner
+import { getLoginBanner } from '../utils/login-banner'
 
 export const SystemBannerLogin = (): React.JSX.Element | null => {
+    const loginBanner = getLoginBanner()
+
     if (loginBanner === undefined) {
         return null
     }

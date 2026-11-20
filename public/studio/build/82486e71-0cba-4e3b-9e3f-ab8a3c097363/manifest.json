@@ -1,0 +1,39 @@
+{
+  "allFiles": [
+    "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/static/js/main.f1cc8e4505.js",
+    "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/static/js/0.a36d3872c6.js",
+    "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/static/js/remoteEntry.js",
+    "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/static/js/async/__federation_expose_default_export.186932ea67.js",
+    "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/mf-stats.json",
+    "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/mf-manifest.json",
+    "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/@mf-types.zip",
+    "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/main.html",
+    "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/@mf-types.d.ts"
+  ],
+  "entries": {
+    "main": {
+      "html": [
+        "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/main.html"
+      ],
+      "initial": {
+        "js": [
+          "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/static/js/0.a36d3872c6.js",
+          "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/static/js/main.f1cc8e4505.js"
+        ]
+      }
+    },
+    "pimcore_plugin_system_banner_bundle": {
+      "initial": {
+        "js": [
+          "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/static/js/remoteEntry.js"
+        ]
+      },
+      "async": {
+        "js": [
+          "/bundles/pimcorepluginsystembanner/studio/build/82486e71-0cba-4e3b-9e3f-ab8a3c097363/static/js/async/__federation_expose_default_export.186932ea67.js"
+        ]
+      }
+    }
+  },
+  "integrity": {}
+}

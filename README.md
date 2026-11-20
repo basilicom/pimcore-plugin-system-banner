@@ -37,6 +37,13 @@ Both UIs are detected at runtime, no configuration needed:
 * The Studio UI plugin is only registered when `pimcore/studio-ui-bundle` is installed
   (`^2025.4` on Pimcore 12, `^2026.1` on Pimcore 2026). It is built against Studio 2026.2.
 
+### Endpoints
+
+* Classic UI: `GET /admin/pimcore-system-banner` (Classic UI firewall)
+* Studio UI: `GET {studio url_prefix}/system-banner`, by default `/pimcore-studio/api/system-banner`
+  (Studio firewall, `ROLE_PIMCORE_USER`). The route only exists when `pimcore/studio-backend-bundle` is installed.
+  The Studio UI does not need a Classic UI session for the banner, also when Studio runs in its own firewall context.
+
 ## Installation
 
 ```
@@ -88,7 +95,8 @@ SYSTEM_BANNER_LOGIN_SCREEN=true
 ```
 It uses the same text and colour as above, on both login screens:
 - classic UI: rendered server-side into the login page via the `pimcore.admin.login.beforeRender` event
-- Studio UI: passed in the app config of the Studio entry page and shown below the login form (`form.login` slot)
+- Studio UI: passed in the app config of the Studio entry page and shown below the login form (`form.login` slot).
+  With the option off, the plugin does not register to that slot, so the login form shows no "or" divider.
 
 > [!CAUTION]
 > The login page is public: with this option on, **anyone** who opens it sees the environment name (and your `SYSTEM_BANNER_TEXT`).
