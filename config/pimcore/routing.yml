@@ -1,3 +1,8 @@
 pimcore_plugin_system_banner:
   resource: "@PimcorePluginSystemBannerBundle/src/Controller/"
   type: attribute
+
+# {studio url_prefix}/system-banner, only when pimcore/studio-backend-bundle is installed
+pimcore_plugin_system_banner_studio:
+  resource: .
+  type: pimcore_plugin_system_banner_studio
